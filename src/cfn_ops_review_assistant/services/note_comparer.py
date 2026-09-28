@@ -21,12 +21,12 @@ class NoteComparer:
         response = OllamaClient().chat(
             prompt=prompt
         )
-        '''
+        """
         print("\nPrompt Sent:")
         print(prompt)
-
+        
         print("\nRaw Model Response:")
         print(repr(response))
-        '''
-
+        """
+        print(repr(response))
         return json.loads(response)

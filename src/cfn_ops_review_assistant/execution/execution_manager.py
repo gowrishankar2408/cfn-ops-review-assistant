@@ -29,3 +29,10 @@ class ExecutionManager:
                 case_number,
                 token,
             )
+
+    def close_case(
+        self,
+        case_number: str,
+        token: str,
+    ):
+        return psr_review.PSRReview().close_case(case_number, token)

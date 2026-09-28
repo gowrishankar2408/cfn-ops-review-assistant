@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from collections.abc import Sequence
 from cfn_ops_review_assistant.services.token_service import Commlinksession
+from cfn_ops_review_assistant.processes.psr_review import PSRReview
 from cfn_ops_review_assistant.execution.execution_manager import ExecutionManager
 
 
@@ -52,7 +53,14 @@ def main(argv: Sequence[str] | None = None) -> int:
         "Do you want to close this case? (Y/N): "
     ).strip().upper()
     if approval == "Y" or approval == "YES":
-        print("Case closed successfully.")
+        status = ExecutionManager().close_case(
+            case_number=args.case_number,
+            token=token,
+        )
+        if status == 200:
+            print("Case closed successfully.")
+        else:
+            print(f"Failed to close case. Status code: {status}")
     else:
         print("Case remains open.")
 
