@@ -1,0 +1,7 @@
+{
+  "id": "pps_custom_expiration_review",
+  "name": "PPS Custom Expiration Review",
+  "version": "v1",
+  "description": "Review custom expiration data and recommend remediation actions.",
+  "entry_point": "src.cfn_ops_review_assistant.processes.pps_custom_expiration_review:run_review"
+}

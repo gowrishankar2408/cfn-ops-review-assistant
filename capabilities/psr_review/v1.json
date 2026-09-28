@@ -1,0 +1,15 @@
+{
+  "capability": "psr_review",
+  "version": "v1",
+  "status": "draft",
+  "inputs": [
+    "incident_id",
+    "stack_name",
+    "review_context"
+  ],
+  "outputs": [
+    "summary",
+    "recommendations",
+    "evidence"
+  ]
+}
