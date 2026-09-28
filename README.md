@@ -1,6 +1,6 @@
 # CFN Ops Review Assistant
 
-A Python-based assistant for CloudFormation operations review workflows, including PSR review and PPS custom expiration review capabilities.
+A Python-based assistant for CFN operations review workflows, including PSR review and PPS custom expiration review capabilities.
 
 ## Project structure
 
