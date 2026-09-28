@@ -41,9 +41,19 @@ def main(argv: Sequence[str] | None = None) -> int:
     print(f"Case Number : {args.case_number}")
     print(f"Token       : {token}")
 
-    ExecutionManager().execute(
+    result = ExecutionManager().execute(
         review_type=args.review_type,
         case_number=args.case_number,
-        token=token)
+        token=token,
+    )
+    print(result.summary)
+    print("-" * 50)
+    approval = input(
+        "Do you want to close this case? (Y/N): "
+    ).strip().upper()
+    if approval == "Y" or approval == "YES":
+        print("Case closed successfully.")
+    else:
+        print("Case remains open.")
 
     return 0

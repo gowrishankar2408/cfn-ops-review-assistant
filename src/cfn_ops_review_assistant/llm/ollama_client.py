@@ -1,11 +1,22 @@
-"""Ollama client placeholder."""
+import requests
 
 
 class OllamaClient:
-    """Simple wrapper to an Ollama endpoint."""
 
-    def __init__(self, endpoint: str = "http://localhost:11434"):
-        self.endpoint = endpoint
+    def chat(
+        self,
+        prompt: str,
+    ) -> str:
 
-    def ping(self) -> bool:
-        return bool(self.endpoint)
+        response = requests.post(
+            "http://localhost:11434/api/generate",
+            json={
+                "model": "llama3.1-local",
+                "prompt": prompt,
+                "stream": False,
+            },
+            timeout=120,
+        )
+        response.raise_for_status()
+
+        return response.json()["response"]
