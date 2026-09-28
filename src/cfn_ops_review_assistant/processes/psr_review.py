@@ -5,12 +5,12 @@ import requests
 from cfn_ops_review_assistant.services.note_comparer import NoteComparer
 from cfn_ops_review_assistant.models.summary_builder import SummaryBuilder
 from cfn_ops_review_assistant.services.note_parser import NoteParser
-from cfn_ops_review_assistant.services.crm_service import PSRReview
+from cfn_ops_review_assistant.services.crm_service import CRMService
 
 '''Class to parse the notes extracted from the CRM API'''
 
 def review(case_number, token):
-    process = PSRReview()
+    process = CRMService()
     note_processor = NoteParser()
     case_notes = process.get_case_notes(case_number, token)
     parsed_notes = note_processor.extract_notes(case_notes)

@@ -2,12 +2,20 @@ from __future__ import annotations
 
 import argparse
 from collections.abc import Sequence
-from cfn_ops_review_assistant.services.token_service import Commlinksession
-from cfn_ops_review_assistant.processes.psr_review import PSRReview
-from cfn_ops_review_assistant.execution.execution_manager import ExecutionManager
+
+from cfn_ops_review_assistant.execution.execution_manager import (
+    ExecutionManager,
+)
+from cfn_ops_review_assistant.services.token_service import (
+    Commlinksession,
+)
+from cfn_ops_review_assistant.services.crm_service import (
+    CRMService,
+)
 
 
 def build_parser() -> argparse.ArgumentParser:
+
     parser = argparse.ArgumentParser(
         prog="cfn-ops-review-assistant",
         description="CFN Operations Review Assistant",
@@ -19,49 +27,118 @@ def build_parser() -> argparse.ArgumentParser:
             "psr-review",
             "pps-custom-expiration",
         ],
-        required=True,
     )
 
     parser.add_argument(
         "--case-number",
-        required=True,
     )
 
     return parser
 
 
-def main(argv: Sequence[str] | None = None) -> int:
-    parser = build_parser()
-    args = parser.parse_args(argv)
-    token = Commlinksession('prod').session_creator()
+def show_menu() -> tuple[str, str]:
 
-    print("\nCFN Ops Review Assistant")
-    print("-" * 50)
+    print("\n")
+    print("=" * 50)
+    print("      CFN Ops Review Assistant")
+    print("=" * 50)
 
-    print(f"Review Type : {args.review_type}")
-    print(f"Case Number : {args.case_number}")
-    print(f"Token       : {token}")
+    print("\nAvailable Reviews\n")
 
-    result = ExecutionManager().execute(
-        review_type=args.review_type,
-        case_number=args.case_number,
-        token=token,
+    print("1. PSR Review")
+    print("2. PPS Custom Expiration Review")
+
+    selection = input(
+        "\nSelect Review: "
+    ).strip()
+
+    review_mapping = {
+        "1": "psr-review",
+        "2": "pps-custom-expiration",
+    }
+
+    review_type = review_mapping.get(
+        selection
     )
+
+    if not review_type:
+        raise ValueError(
+            "Invalid review selection."
+        )
+
+    case_number = input(
+        "\nEnter Case Number: "
+    ).strip()
+
+    return review_type, case_number
+
+
+def main(
+    argv: Sequence[str] | None = None,
+) -> int:
+
+    parser = build_parser()
+
+    args = parser.parse_args(argv)
+
+    if args.review_type and args.case_number:
+
+        review_type = args.review_type
+        case_number = args.case_number
+
+    else:
+
+        review_type, case_number = show_menu()
+
+    print("\nGenerating CFN Session...")
+
+    token = (
+        Commlinksession('prod')
+        .session_creator()
+    )
+
+    print("CFN Session GeneratedN")
+
+    result = (
+        ExecutionManager()
+        .execute(
+            review_type=review_type,
+            case_number=case_number,
+            token=token,
+        )
+    )
+
+    print("\n")
     print(result.summary)
-    print("-" * 50)
+    print("\n")
+
     approval = input(
         "Do you want to close this case? (Y/N): "
     ).strip().upper()
-    if approval == "Y" or approval == "YES":
-        status = ExecutionManager().close_case(
-            case_number=args.case_number,
-            token=token,
+
+    if approval == "Y":
+
+        status_code = (
+            ExecutionManager()
+            .close_case(
+                case_number=case_number,
+                token=token,
+            )
         )
-        if status == 200:
-            print("Case closed successfully.")
+        print(status_code)
+        if status_code == 200:
+            print("\nCase closed successfully.")
         else:
-            print(f"Failed to close case. Status code: {status}")
+            print("\nFailed to close the case.")
+
     else:
-        print("Case remains open.")
+
+        print(
+            "\nCase remains open."
+        )
 
     return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

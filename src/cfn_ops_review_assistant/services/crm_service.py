@@ -1,7 +1,7 @@
 import os
 import requests
 
-class PSRReview:
+class CRMService:
     def __init__(self):
         self.host_name = os.getenv("hostName")
         self.entry_point = os.getenv("entryPoint")
@@ -25,4 +25,4 @@ class PSRReview:
             raise ValueError("Both case_number and token are required.")
         closeURL = self.host_name + self.entry_point + self.endpoint.format(caseNumber=case_number) + 'close'
         response = requests.post(closeURL, headers={"client_id": self.clientID, "client_secret": self.clientSecret })
-        return response.status_code
+        return response.content
