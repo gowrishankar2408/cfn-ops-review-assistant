@@ -32,9 +32,24 @@ class NoteParser:
 
                 return (
                     original_note.strip(),
-                    edit_note.strip()
+                    f"{marker} {edit_note.strip()}",
                 )
 
         raise ValueError(
             "Unable to find ORIGINAL SUBMIT DATE and EDIT SUBMIT DATE notes."
         )
+
+    def clean_note(note: str) -> str:
+        lines = note.splitlines()
+        filtered = []
+        for line in lines:
+
+            if line.startswith("ORIGINAL SUBMIT DATE:"):
+                continue
+
+            if line.startswith("EDIT SUBMIT DATE:"):
+                continue
+
+            filtered.append(line)
+
+        return "\n".join(filtered)
