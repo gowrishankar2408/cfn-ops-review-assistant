@@ -11,19 +11,29 @@ from cfn_ops_review_assistant.services.surface_helper import SurfaceAdapter
 def review(case_number: str, token: str) -> ReviewResult:
     process = CRMService()
     adaptor = SurfaceAdapter()
-    adaptor.launch_case(
-        case_number,
-        token,
+    try:
+        adaptor.launch_case(
+            case_number,
+            token,
+            )
+        adaptor.click_edit()
+        adaptor.select_exception_granted()
+        adaptor.click_update_case()
+        success = adaptor.validate_exception_granted()
+        return ReviewResult(
+            case_number=case_number,
+            process_name="pps-custom-expiration",
+            status='Pass' if success else 'Fail',
+            summary="PPS Custom Expiration Review completed." if success else "PPS Custom Expiration Review failed.",
+            comparison_result={},
         )
-    adaptor.click_edit()
-    adaptor.select_exception_granted()
-    adaptor.click_update_case()
-    # Implement the review logic here
-    # For now, just return a dummy ReviewResult
-    return ReviewResult(
-        case_number=case_number,
-        process_name="pps-custom-expiration",
-        status='Pass',
-        summary="PPS Custom Expiration Review completed.",
-        comparison_result={},
-    )
+    except Exception as e:
+        return ReviewResult(
+            case_number=case_number,
+            process_name="pps-custom-expiration",
+            status='Fail',
+            summary=f"PPS Custom Expiration Review could not be completed: {str(e)}",
+            comparison_result={},
+        )
+    finally:
+        adaptor.close()

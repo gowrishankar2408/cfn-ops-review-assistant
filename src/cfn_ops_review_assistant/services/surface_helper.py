@@ -1,19 +1,8 @@
 import os
-from playwright.sync_api import sync_playwright
-
-
-class SurfaceAdapter:
-
-    def __init__(self):
-
-        self.playwright = None
-        self.browser = None
-        self.page = None
-
-    import os
 from pathlib import Path
 from playwright.sync_api import sync_playwright
-
+import dotenv
+dotenv.load_dotenv()
 
 class SurfaceAdapter:
 
@@ -30,10 +19,6 @@ class SurfaceAdapter:
 
         browser_path = os.getenv(
             "PLAYWRIGHT_BROWSER_PATH"
-        )
-
-        print(
-            f"PLAYWRIGHT_BROWSER_PATH = {browser_path}"
         )
 
         if not browser_path:
@@ -67,10 +52,7 @@ class SurfaceAdapter:
                                     ]
                                 )
         self.page = self.context.new_page()
-        self.page.goto(
-            f"https://home.commonwealth.com/"
-            f"Applications/BOS/support/cases/{case_number}"
-        )
+        self.page.goto(os.environ["bos_case_url"].format(caseNumber=case_number))
 
         print(
             f"Opened case: {case_number}"
@@ -79,7 +61,7 @@ class SurfaceAdapter:
     def click_edit(self):
 
         self.page.get_by_role(
-            "button",
+            "link",
             name="Edit"
         ).click()
 
@@ -95,6 +77,13 @@ class SurfaceAdapter:
             "button",
             name="Update Case"
         ).click()
+
+    def validate_exception_granted(self):
+        
+        locator = self.page.get_by_text(
+            name=" Exception Granted on Case"
+        )
+        return locator.is_visible()
 
     def close(self):
 
