@@ -1,8 +1,19 @@
-"""Replay engine placeholder."""
-
-
 class ReplayEngine:
-    """Handles reprocessing of stored review events."""
 
-    def replay(self, event_id: str) -> dict:
-        return {"event_id": event_id, "status": "not_implemented"}
+    def execute(
+        self,
+        capability,
+        case_number,
+        token,
+    ):
+
+        print(
+            f"Executing capability "
+            f"{capability.name} "
+            f"v{capability.version}"
+        )
+
+        return capability.execute(
+            case_number,
+            token,
+        )

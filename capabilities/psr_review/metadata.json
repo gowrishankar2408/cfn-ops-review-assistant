@@ -1,7 +1,0 @@
-{
-  "id": "psr_review",
-  "name": "PSR Review",
-  "version": "v1",
-  "description": "Review operations for PSR compliance and recommendations.",
-  "entry_point": "src.cfn_ops_review_assistant.processes.psr_review:run_review"
-}

@@ -1,22 +1,22 @@
-from pathlib import Path
-import json
+from cfn_ops_review_assistant.capabilities.psr_review_capability import PSRReviewCapability
+from cfn_ops_review_assistant.capabilities.pps_custom_expiration_capability import PPSCustomExpirationCapability
 
 
 class CapabilityRegistry:
 
-    def load(
+    def resolve(
         self,
         capability_name: str,
     ):
 
-        capability_path = (
-                            Path(__file__).parent
-                            / capability_name
-                            / "metadata.json"
-                        )
-        
-        print(capability_path)
+        capability_map = {
+            "psr-review":
+                PSRReviewCapability(),
 
-        return json.loads(
-            capability_path.read_text()
-        )
+            "pps-custom-expiration":
+                PPSCustomExpirationCapability(),
+        }
+
+        return capability_map[
+            capability_name
+        ]

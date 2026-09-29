@@ -126,7 +126,7 @@ def main(
     )
 
     print("\n")
-    print(result)
+    print(result.summary)
     print("\n")
 
     approval = input(
