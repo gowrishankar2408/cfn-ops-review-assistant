@@ -21,12 +21,15 @@ class NoteComparer:
         response = OllamaClient().chat(
             prompt=prompt
         )
-        """
-        print("\nPrompt Sent:")
-        print(prompt)
-        
-        print("\nRaw Model Response:")
-        print(repr(response))
-        """
-        print(repr(response))
-        return json.loads(response)
+        response = response.strip()
+        if not response:
+            raise RuntimeError(
+            "LLM returned an empty response."
+            )
+        try:
+            return json.loads(response)
+        except json.JSONDecodeError:
+            print("\nFAILED TO PARSE JSON")
+            print("RESPONSE:")
+            print(repr(response))
+            raise
