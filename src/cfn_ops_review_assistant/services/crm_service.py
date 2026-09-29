@@ -24,5 +24,8 @@ class CRMService:
         if not case_number or not token:
             raise ValueError("Both case_number and token are required.")
         closeURL = self.host_name + self.entry_point + self.endpoint.format(caseNumber=case_number) + 'close'
-        response = requests.post(closeURL, headers={"client_id": self.clientID, "client_secret": self.clientSecret })
+        payload = {
+                    "status": "Pass"
+                    }
+        response = requests.post(closeURL, headers={"Content-Type":"application/json","client_id": self.clientID, "client_secret": self.clientSecret }, json=payload)
         return response.content
