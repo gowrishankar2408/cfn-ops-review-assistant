@@ -2,8 +2,8 @@
 '''Manage execution of CFN operations reviews.'''
 from cfn_ops_review_assistant.llm.prompts import COMPARISON_PROMPT_TEMPLATE
 from cfn_ops_review_assistant.models.models import ReviewResult
-from cfn_ops_review_assistant.processes.pps_custom_expiration_review import PPSCustomExpirationReview
 import cfn_ops_review_assistant.processes.psr_review as psr_review
+import cfn_ops_review_assistant.processes.pps_custom_expiration_review as pps_custom_review
 from cfn_ops_review_assistant.services.crm_service import CRMService
 
 class ExecutionManager:
@@ -21,10 +21,8 @@ class ExecutionManager:
             
 
         elif review_type == "pps-custom-expiration":
-            PPSCustomExpirationReview().execute(
-                case_number,
-                token,
-            )
+            summary_result = pps_custom_review.review(case_number, token)
+            return summary_result
 
     def close_case(
         self,

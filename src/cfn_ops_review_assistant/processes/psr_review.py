@@ -8,9 +8,7 @@ from cfn_ops_review_assistant.models.summary_builder import SummaryBuilder
 from cfn_ops_review_assistant.services.note_parser import NoteParser
 from cfn_ops_review_assistant.services.crm_service import CRMService
 
-'''Class to parse the notes extracted from the CRM API'''
-
-def review(case_number, token) -> ReviewResult:
+def review(case_number: str, token: str) -> ReviewResult:
     process = CRMService()
     note_processor = NoteParser()
     case_notes = process.get_case_notes(case_number, token)

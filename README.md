@@ -13,7 +13,8 @@ A Python-based assistant for CFN operations review workflows, including PSR revi
 
 1. Create a virtual environment.
 2. Install requirements.
-3. Run the CLI entry point.
+3. Install python -m playwright install chromium manually from https://cdn.playwright.dev/builds/cft/153.0.8010.12/win64/chrome-win64.zip
+4. Run the CLI entry point.
 
 ```bash
 python -m venv .venv

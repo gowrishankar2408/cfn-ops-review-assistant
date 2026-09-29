@@ -3,16 +3,10 @@ from __future__ import annotations
 import argparse
 from collections.abc import Sequence
 
-from cfn_ops_review_assistant.execution.execution_manager import (
-    ExecutionManager,
-)
-from cfn_ops_review_assistant.services.token_service import (
-    Commlinksession,
-)
-from cfn_ops_review_assistant.services.crm_service import (
-    CRMService,
-)
-
+from cfn_ops_review_assistant.execution.execution_manager import ExecutionManager
+from cfn_ops_review_assistant.services.token_service import Commlinksession
+from cfn_ops_review_assistant.services.crm_service import CRMService
+from cfn_ops_review_assistant.services.setup_service import SetupService
 
 def build_parser() -> argparse.ArgumentParser:
 
@@ -21,16 +15,33 @@ def build_parser() -> argparse.ArgumentParser:
         description="CFN Operations Review Assistant",
     )
 
-    parser.add_argument(
+    subparsers = parser.add_subparsers(
+        dest="command",
+        required=False,
+    )
+
+    setup_parser = subparsers.add_parser(
+        "setup",
+        help="Install and validate local dependencies.",
+    )
+
+    review_parser = subparsers.add_parser(
+        "review",
+        help="Run a review process.",
+    )
+
+    review_parser.add_argument(
         "--review-type",
         choices=[
             "psr-review",
             "pps-custom-expiration",
         ],
+        required=True,
     )
 
-    parser.add_argument(
+    review_parser.add_argument(
         "--case-number",
+        required=True,
     )
 
     return parser
@@ -80,8 +91,11 @@ def main(
     parser = build_parser()
 
     args = parser.parse_args(argv)
+    if args.command == "setup": 
+        SetupService().run()
+        return 0
 
-    if args.review_type and args.case_number:
+    if args.command == "review":
 
         review_type = args.review_type
         case_number = args.case_number
@@ -89,6 +103,9 @@ def main(
     else:
 
         review_type, case_number = show_menu()
+
+    #if not args.command:
+    #review_type, case_number = show_menu()
 
     print("\nGenerating CFN Session...")
 

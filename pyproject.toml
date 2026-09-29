@@ -13,6 +13,7 @@ dependencies = [
     "requests",
     "pydantic",
     "python-dotenv"
+    "playwright"
 ]
 
 [tool.setuptools.packages.find]
