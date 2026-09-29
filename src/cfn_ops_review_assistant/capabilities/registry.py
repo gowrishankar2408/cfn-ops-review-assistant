@@ -1,10 +1,22 @@
-"""Capability registry definitions."""
-
-CAPABILITIES = {
-    "psr_review": "cfn_ops_review_assistant.processes.psr_review",
-    "pps_custom_expiration_review": "cfn_ops_review_assistant.processes.pps_custom_expiration_review",
-}
+from pathlib import Path
+import json
 
 
-def list_capabilities() -> list[str]:
-    return sorted(CAPABILITIES)
+class CapabilityRegistry:
+
+    def load(
+        self,
+        capability_name: str,
+    ):
+
+        capability_path = (
+                            Path(__file__).parent
+                            / capability_name
+                            / "metadata.json"
+                        )
+        
+        print(capability_path)
+
+        return json.loads(
+            capability_path.read_text()
+        )
