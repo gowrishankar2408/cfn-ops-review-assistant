@@ -27,13 +27,17 @@ def review(case_number: str, token: str) -> ReviewResult:
             summary="PPS Custom Expiration Review completed." if success else "PPS Custom Expiration Review failed.",
             comparison_result={},
         )
-    except Exception as e:
-        return ReviewResult(
-            case_number=case_number,
-            process_name="pps-custom-expiration",
-            status='Fail',
-            summary=f"PPS Custom Expiration Review could not be completed: {str(e)}",
-            comparison_result={},
+    except Exception as ex:
+        print("Exception occurred.")
+        screenshot_path = (
+            adaptor.capture_screenshot(
+                case_number
+            )
         )
+        print(
+                f"Screenshot Path: {screenshot_path}"
+                )
+        ex.screenshot_path = screenshot_path
+        raise
     finally:
         adaptor.close()

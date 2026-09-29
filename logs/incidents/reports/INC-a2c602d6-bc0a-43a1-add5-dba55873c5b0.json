@@ -1,0 +1,9 @@
+{
+  "incident_id": "INC-a2c602d6-bc0a-43a1-add5-dba55873c5b0",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "Page.get_by_text() got an unexpected keyword argument 'name'",
+  "timestamp": "2026-09-29T15:07:44.307564",
+  "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png"
+}

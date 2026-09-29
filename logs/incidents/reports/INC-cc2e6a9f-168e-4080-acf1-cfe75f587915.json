@@ -1,0 +1,9 @@
+{
+  "incident_id": "INC-cc2e6a9f-168e-4080-acf1-cfe75f587915",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "'SurfaceAdapter' object has no attribute 'click_edit123'",
+  "timestamp": "2026-09-29T14:07:22.916095",
+  "screenshot": null
+}

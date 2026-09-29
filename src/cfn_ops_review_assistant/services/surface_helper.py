@@ -78,12 +78,27 @@ class SurfaceAdapter:
             name="Update Case"
         ).click()
 
-    def validate_exception_granted(self):
-        
-        locator = self.page.get_by_text(
-            name=" Exception Granted on Case"
-        )
+    def validate_exception_granted(self) -> bool:
+        self.page.wait_for_load_state("networkidle")
+        locator = self.page.get_by_text("* Exception Granted on Case")
         return locator.is_visible()
+
+    def capture_screenshot(self,incident_id: str,) -> str:
+        base_dir = Path(__file__).resolve().parents[3]
+        screenshot_dir = (base_dir/ "logs"/ "incidents"/ "screenshots")
+        screenshot_dir.mkdir(
+                        parents=True,
+                        exist_ok=True,
+        )
+        screenshot_path = (
+                            screenshot_dir
+                            / f"{incident_id}.png"
+                        )
+        self.page.screenshot(
+        path=str(screenshot_path),
+        full_page=True,
+        )
+        return str(screenshot_path)
 
     def close(self):
 

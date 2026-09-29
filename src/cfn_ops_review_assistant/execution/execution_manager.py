@@ -29,9 +29,9 @@ class ExecutionManager:
             return summary_result
         '''
         
-        def close_case(
-        self,
-        case_number: str,
-        token: str,
-    ):
-            return CRMService().close_case(case_number, token)
+    def close_case(
+    self,
+    case_number: str,
+    token: str,
+):
+        return CRMService().close_case(case_number, token)

@@ -1,0 +1,9 @@
+{
+  "incident_id": "INC-5bda50b2-57db-4a4a-ab7b-f5066fa8f770",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"link\", name=\"Edit\")\n",
+  "timestamp": "2026-09-29T14:21:57.897779",
+  "screenshot": null
+}

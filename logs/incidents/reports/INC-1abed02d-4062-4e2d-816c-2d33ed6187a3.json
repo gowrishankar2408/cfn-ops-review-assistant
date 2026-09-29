@@ -1,0 +1,9 @@
+{
+  "incident_id": "INC-1abed02d-4062-4e2d-816c-2d33ed6187a3",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://home.commonwealth.com/Applications/BOS/support/cases/24910726\", waiting until \"load\"\n",
+  "timestamp": "2026-09-29T14:38:52.312348",
+  "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png"
+}
