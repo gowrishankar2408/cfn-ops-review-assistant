@@ -42,10 +42,10 @@ class SurfaceAdapter:
         self.context.add_cookies(
                                     [
                                         {
-                                            "name": "CFNSession",
+                                            "name": os.environ["cookie_name"],
                                             "value": token,
-                                            "domain": "home.commonwealth.com",
-                                            "path": "/",
+                                            "domain": os.environ["cookie_domain"],
+                                            "path": os.environ["cookie_path"],
                                             "httpOnly": False,
                                             "secure": True,
                                         }
