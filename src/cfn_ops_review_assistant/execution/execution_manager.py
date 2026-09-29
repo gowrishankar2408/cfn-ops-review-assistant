@@ -17,12 +17,7 @@ class ExecutionManager:
 
         if review_type == "psr-review":
             summary_result = psr_review.review(case_number, token)
-            return ReviewResult(
-                case_number=case_number,
-                process_name = "psr-review",
-                summary=summary_result["summary"],
-                status=summary_result["comparison_result"]["match"],
-            )
+            return summary_result
             
 
         elif review_type == "pps-custom-expiration":
