@@ -15,4 +15,6 @@ class ExecutionLog(BaseModel):
 
     incident_id: str = None
 
+    discovery_request_id: str = None
+
     timestamp: str

@@ -16,7 +16,7 @@ def review(case_number: str, token: str) -> ReviewResult:
             case_number,
             token,
             )
-        adaptor.click_edit()
+        adaptor.click_edit123()
         adaptor.select_exception_granted()
         adaptor.click_update_case()
         success = adaptor.validate_exception_granted()

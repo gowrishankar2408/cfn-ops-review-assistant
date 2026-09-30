@@ -9,8 +9,8 @@ class ExecutionLogger:
         self,
         log_record: dict,
     ):
-
-        log_dir = Path("logs/executions")
+        project_root = Path(__file__).resolve().parents[3]
+        log_dir = project_root / "logs/executions"
 
         log_dir.mkdir(
             parents=True,

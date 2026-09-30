@@ -1,6 +1,9 @@
 from cfn_ops_review_assistant.logging.execution_logger import ExecutionLogger
 from cfn_ops_review_assistant.incidents.incidents import IncidentManager
+from cfn_ops_review_assistant.discovery.discovery_manager import DiscoveryManager
 from datetime import datetime
+from pathlib import Path
+import json
 
 class ReplayEngine:
 
@@ -44,8 +47,15 @@ class ReplayEngine:
             version=capability.version,
             case_number=case_number,
             error=str(e),
-            screenshot=screenshot,
-            )
+            screenshot=screenshot,)
+            discovery_request_id = (DiscoveryManager().create_request(
+                        capability=capability.name,
+                        version=capability.version,
+                        incident_id=incident_id,
+                        case_number=case_number,
+                    )
+                )
+            print("Writing failure log...")
             ExecutionLogger().log(
                 {
                 "case_number": case_number,
@@ -55,8 +65,10 @@ class ReplayEngine:
                 "result": str(e),
                 "timestamp": datetime.now().isoformat(),
                 "incident_id": incident_id,
+                "discovery_request_id": discovery_request_id,
                 }
                 )
+            print("Failure log written.")
             raise RuntimeError(
             f"Execution failed. "
             f"Incident: {incident_id}"
