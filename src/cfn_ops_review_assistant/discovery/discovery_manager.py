@@ -83,3 +83,131 @@ class DiscoveryManager:
                 if request["status"] == "pending":
                     requests.append(request)
             return requests
+
+
+    def get_request(
+        self,
+        request_id: str,
+    ):
+
+        request_dir = (
+            Path(__file__).resolve().parents[3]
+            / "logs"
+            / "discovery"
+            / "requests"
+        )
+
+        request_file = (
+            request_dir
+            / f"{request_id}.json"
+        )
+
+        if not request_file.exists():
+
+            raise FileNotFoundError(
+                f"Discovery request not found: {request_id}"
+            )
+
+        with open(
+            request_file,
+            encoding="utf-8",
+        ) as f:
+
+            return json.load(f)
+
+    def mark_in_progress(
+    self,
+    request_id: str,
+):
+        request = self.get_request(
+            request_id
+        )
+
+        request["status"] = (
+            "in-progress"
+        )
+
+        request_file = (
+            Path(__file__).resolve().parents[3]
+            / "logs"
+            / "discovery"
+            / "requests"
+            / f"{request_id}.json"
+        )
+
+        with open(
+            request_file,
+            "w",
+            encoding="utf-8",
+        ) as f:
+
+            json.dump(
+                request,
+                f,
+                indent=2,
+            )
+
+    def mark_completed(
+    self,
+    request_id: str,
+):
+
+        request = self.get_request(
+            request_id
+        )
+
+        request["status"] = (
+            "completed"
+        )
+
+        request_file = (
+            Path(__file__).resolve().parents[3]
+            / "logs"
+            / "discovery"
+            / "requests"
+            / f"{request_id}.json"
+        )
+
+        with open(
+            request_file,
+            "w",
+            encoding="utf-8",
+        ) as f:
+
+            json.dump(
+                request,
+                f,
+                indent=2,
+            )
+
+    def mark_rejected(
+    self,
+    request_id: str,
+):
+        request = self.get_request(
+            request_id
+        )
+
+        request["status"] = (
+            "rejected"
+        )
+
+        request_file = (
+            Path(__file__).resolve().parents[3]
+            / "logs"
+            / "discovery"
+            / "requests"
+            / f"{request_id}.json"
+        )
+
+        with open(
+            request_file,
+            "w",
+            encoding="utf-8",
+        ) as f:
+
+            json.dump(
+                request,
+                f,
+                indent=2,
+            )
