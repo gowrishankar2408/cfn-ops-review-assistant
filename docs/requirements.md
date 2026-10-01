@@ -2,7 +2,7 @@
 
 ## Functional requirements
 
-- Review CloudFormation stacks against PSR expectations.
+- Review CFN stacks against PSR expectations.
 - Validate PPS custom expiration review conditions.
 - Produce structured review results with recommendations.
 - Capture screenshots, logs, and report artifacts for incidents.

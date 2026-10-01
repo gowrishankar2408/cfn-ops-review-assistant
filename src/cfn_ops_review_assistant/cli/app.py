@@ -7,6 +7,7 @@ from cfn_ops_review_assistant.execution.execution_manager import ExecutionManage
 from cfn_ops_review_assistant.services.token_service import Commlinksession
 from cfn_ops_review_assistant.services.crm_service import CRMService
 from cfn_ops_review_assistant.services.setup_service import SetupService
+from cfn_ops_review_assistant.discovery.discovery_engine import DiscoveryEngine
 
 def build_parser() -> argparse.ArgumentParser:
 
@@ -43,6 +44,16 @@ def build_parser() -> argparse.ArgumentParser:
         "--case-number",
         required=True,
     )
+
+    discover_parser = subparsers.add_parser(
+            "discover",
+            help="Run discovery for a discovery request.",
+        )
+        
+    discover_parser.add_argument(
+            "--request-id",
+            required=True,
+        )
 
     return parser
 
@@ -95,6 +106,10 @@ def main(
         SetupService().run()
         return 0
 
+    if args.command == "discover":
+        DiscoveryEngine().discover(args.request_id)
+        return 0
+
     if args.command == "review":
 
         review_type = args.review_type
@@ -114,16 +129,31 @@ def main(
         .session_creator()
     )
 
-    print("CFN Session GeneratedN")
+    print("CFN Session Generated")
 
-    result = (
-        ExecutionManager()
-        .execute(
-            review_type=review_type,
-            case_number=case_number,
-            token=token,
+    try:
+
+        result = (
+            ExecutionManager()
+            .execute(
+                review_type=review_type,
+                case_number=case_number,
+                token=token,
+            )
         )
-    )
+    except RuntimeError as ex:
+        print("\n")
+        print("=" * 50)
+        print("Review Failed")
+        print("=" * 50)
+
+        print(str(ex))
+
+        print(
+            "\nA discovery request has been created "
+            "and assigned to the support team."
+        )
+        return 1
 
     print("\n")
     print(result.summary)

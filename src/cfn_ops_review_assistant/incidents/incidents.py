@@ -13,7 +13,10 @@ class IncidentManager:
         version: str,
         case_number: str,
         error: str,
+        failed_step: str,
+        capture_url: str | None = None,
         screenshot: str | None = None,
+        visible_controls: str | None = None,
     ) -> str:
 
         incident_id = (
@@ -40,8 +43,17 @@ class IncidentManager:
             "timestamp":
                 datetime.now().isoformat(),
 
+            "failed_step":
+                failed_step,
+
             "screenshot":
                 screenshot,
+                
+            "visible_controls":
+                visible_controls,
+
+            "capture_url":
+                capture_url,
         }
         base_dir = Path(__file__).resolve().parents[3]
         reports_dir = (base_dir /"logs" /"incidents" /"reports"

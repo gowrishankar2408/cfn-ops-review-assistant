@@ -11,6 +11,7 @@ class DiscoveryContextBuilder:
         capability_name: str,
         version: str,
         screenshot_path: str,
+        artifact: str,
     ):
         context = {
 
@@ -35,9 +36,21 @@ class DiscoveryContextBuilder:
             "screenshot":
                 screenshot_path,
 
+            "failed_step":
+                incident["failed_step"],
+
+            "capture_url":
+                incident["capture_url"],
+
             "generated_at":
                 datetime.now().isoformat(),
-                }
+
+            "artifact":
+                artifact,
+
+            "visible_controls":
+                incident["visible_controls"],
+        }
         project_root = (Path(__file__).resolve().parents[3])
         context_dir = (
             project_root

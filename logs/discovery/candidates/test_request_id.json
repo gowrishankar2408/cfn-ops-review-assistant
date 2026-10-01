@@ -1,0 +1,1 @@
+{"capability": "test_capability", "current_version": "1.0", "candidate_version": "2.0", "status": "candidate", "generated_from": {"request_id": "test_request_id", "incident_id": "test_incident_id"}, "analysis": {}, "current_artifact": {}}

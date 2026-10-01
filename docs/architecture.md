@@ -1,6 +1,6 @@
 # Architecture
 
-This project provides an operational review assistant for CloudFormation change validation. It coordinates a capability registry, execution manager, and review processes for policy, exception, and expiration scenarios.
+This project provides an operational review assistant for CFN change validation. It coordinates a capability registry, execution manager, and review processes for policy, exception, and expiration scenarios.
 
 ## Components
 

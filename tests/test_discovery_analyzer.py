@@ -1,4 +1,6 @@
-{
+from cfn_ops_review_assistant.discovery.discovery_analyzer import DiscoveryAnalyzer
+
+analyze = DiscoveryAnalyzer().analyze({
   "request_id": "DISC-06239b2a-5550-437f-a8a7-3b1a4338bf05",
   "capability": "pps-custom-expiration",
   "version": "1.0",
@@ -6,5 +8,6 @@
   "case_number": "24910726",
   "error": "'SurfaceAdapter' object has no attribute 'click_edit123'",
   "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png",
-  "generated_at": "2026-09-30T13:54:45.911157"
-}
+  "generated_at": "2026-09-29T23:39:20.759932"
+})
+print(analyze)

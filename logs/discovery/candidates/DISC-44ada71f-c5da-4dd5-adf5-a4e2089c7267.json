@@ -1,0 +1,41 @@
+{
+    "capability": "pps-custom-expiration",
+    "current_version": "1.0",
+    "candidate_version": "2.0",
+    "status": "candidate",
+    "generated_from": {
+        "request_id": "DISC-44ada71f-c5da-4dd5-adf5-a4e2089c7267",
+        "incident_id": "INC-ee5a3dcc-ccf4-4136-9f83-d8ca3ec8a21c"
+    },
+    "analysis": {
+        "capability": "pps-custom-expiration",
+        "version": "1.0",
+        "failure_type": "TimeoutError",
+        "root_cause": "Locator.click: Timeout 30000ms exceeded. Waiting for get_by_role(\"link\", name=\"Validate\")",
+        "recommended_action": "Increase the timeout value to ensure that the action is completed within the allowed time."
+    },
+    "current_artifact": {
+        "name": "pps-custom-expiration",
+        "version": "1.0",
+        "inputs": {
+            "case_number": "string"
+        },
+        "outputs": {
+            "status": "string"
+        },
+        "steps": [
+            {
+                "action": "click_edit"
+            },
+            {
+                "action": "select_exception_granted"
+            },
+            {
+                "action": "click_update_case"
+            }
+        ],
+        "checkpoint": {
+            "text": "Exception Granted on Case"
+        }
+    }
+}

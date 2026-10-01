@@ -39,15 +39,21 @@ class ReplayEngine:
         except Exception as e:
             print("Creating incident...")
             screenshot = getattr(e,"screenshot_path",None,)
-            print(
-                f"Screenshot Path: {screenshot}"
-                )
+            failed_step = getattr(e,"failed_step",None)
+            capture_url = getattr(e,"capture_url",None)
+            page_text = getattr(e,"page_text",None)
+            visible_controls = getattr(e,"visible_controls",None)
             incident_id = IncidentManager().create(
             capability=capability.name,
             version=capability.version,
             case_number=case_number,
             error=str(e),
-            screenshot=screenshot,)
+            failed_step=failed_step,
+            screenshot=screenshot,
+            capture_url=capture_url,
+            #page_text=page_text,
+            visible_controls=visible_controls,
+            )
             discovery_request_id = (DiscoveryManager().create_request(
                         capability=capability.name,
                         version=capability.version,
@@ -72,4 +78,5 @@ class ReplayEngine:
             raise RuntimeError(
             f"Execution failed. "
             f"Incident: {incident_id}"
+            f" Discovery Request: {discovery_request_id}"
             ) from e

@@ -62,7 +62,7 @@ class SurfaceAdapter:
 
         self.page.get_by_role(
             "link",
-            name="Edit"
+            name="Validate"
         ).click()
 
     def select_exception_granted(self):
@@ -99,6 +99,51 @@ class SurfaceAdapter:
         full_page=True,
         )
         return str(screenshot_path)
+
+    def capture_url(self, incident_id: str,) -> str:
+        current_url = self.page.url
+        return current_url
+
+    def capture_page_text(self,incident_id: str,) -> str:
+        return self.page.locator(
+            "body"
+        ).inner_text()
+    
+    def get_visible_controls(self,incident_id: str,) -> str:
+        controls = []
+
+        # Buttons
+        for el in self.page.get_by_role("button").all():
+            try:
+                controls.append({
+                    "type": "button",
+                    "text": el.inner_text().strip()
+                })
+            except Exception:
+                pass
+
+        # Links
+        for el in self.page.get_by_role("link").all():
+            try:
+                controls.append({
+                    "type": "link",
+                    "text": el.inner_text().strip()
+                })
+            except Exception:
+                pass
+
+        # Checkboxes
+        for el in self.page.get_by_role("checkbox").all():
+            try:
+                controls.append({
+                    "type": "checkbox",
+                    "text": el.get_attribute("aria-label")
+                })
+            except Exception:
+                pass
+
+        return controls
+        
 
     def close(self):
 

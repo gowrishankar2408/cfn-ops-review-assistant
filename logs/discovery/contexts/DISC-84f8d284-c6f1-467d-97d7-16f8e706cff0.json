@@ -1,0 +1,36 @@
+{
+  "request_id": "DISC-84f8d284-c6f1-467d-97d7-16f8e706cff0",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "incident_id": "INC-480dfd52-fb81-47ee-b695-59e6c4308ac1",
+  "case_number": "24910726",
+  "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"link\", name=\"Validate\")\n",
+  "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png",
+  "failed_step": "click_edit",
+  "capture_url": "https://home.commonwealth.com/Applications/BOS/support/cases/24910726",
+  "generated_at": "2026-09-30T15:27:07.396784",
+  "artifact": {
+    "name": "pps-custom-expiration",
+    "version": "1.0",
+    "inputs": {
+      "case_number": "string"
+    },
+    "outputs": {
+      "status": "string"
+    },
+    "steps": [
+      {
+        "action": "click_edit"
+      },
+      {
+        "action": "select_exception_granted"
+      },
+      {
+        "action": "click_update_case"
+      }
+    ],
+    "checkpoint": {
+      "text": "Exception Granted on Case"
+    }
+  }
+}

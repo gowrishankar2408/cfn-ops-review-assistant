@@ -1,0 +1,1 @@
+{"capability": "pps-custom-expiration", "version": "1.0", "failure_type": "Locator.click: Timeout 30000ms exceeded", "root_cause": "waiting for get_by_role(\"link\", name=\"Validate\")", "recommended_action": "Check the locator and role in the test, verify that the element is present and clickable, and then retry the test."}

@@ -1,0 +1,10 @@
+{
+  "request_id": "DISC-1c67a279-6e2d-493c-af7a-0ba54acc3f18",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "incident_id": "INC-a3b8f790-285f-49dd-b332-da06cbe58c13",
+  "case_number": "24910726",
+  "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"link\", name=\"Validate\")\n",
+  "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png",
+  "generated_at": "2026-09-30T15:12:55.120903"
+}
