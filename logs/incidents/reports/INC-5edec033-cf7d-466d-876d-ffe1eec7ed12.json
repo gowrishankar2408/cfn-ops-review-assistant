@@ -1,0 +1,12 @@
+{
+  "incident_id": "INC-5edec033-cf7d-466d-876d-ffe1eec7ed12",
+  "capability": "psr-review",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "Expecting value: line 1 column 1 (char 0)",
+  "timestamp": "2026-10-01T10:37:58.017462",
+  "failed_step": null,
+  "screenshot": null,
+  "visible_controls": null,
+  "capture_url": null
+}

@@ -1,0 +1,12 @@
+{
+  "incident_id": "INC-fbedd6ec-a054-45ed-8df8-bae3430e75b7",
+  "capability": "psr-review",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "'\\n  \"match\"'",
+  "timestamp": "2026-10-01T10:33:43.844120",
+  "failed_step": null,
+  "screenshot": null,
+  "visible_controls": null,
+  "capture_url": null
+}

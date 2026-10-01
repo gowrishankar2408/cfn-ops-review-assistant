@@ -1,0 +1,451 @@
+{
+  "incident_id": "INC-4a404ade-579c-433a-8d8d-f5381a8c77da",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"link\", name=\"Validate\")\n",
+  "timestamp": "2026-10-01T10:54:58.243708",
+  "failed_step": {
+    "action": "click",
+    "target": {
+      "role": "link",
+      "name": "Validate"
+    }
+  },
+  "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png",
+  "visible_controls": [
+    {
+      "type": "button",
+      "text": ""
+    },
+    {
+      "type": "button",
+      "text": ""
+    },
+    {
+      "type": "button",
+      "text": "Open"
+    },
+    {
+      "type": "button",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Case Manager"
+    },
+    {
+      "type": "link",
+      "text": "Create Case"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Admin"
+    },
+    {
+      "type": "link",
+      "text": "Echo Bot"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "You"
+    },
+    {
+      "type": "link",
+      "text": "0"
+    },
+    {
+      "type": "link",
+      "text": "Edit"
+    },
+    {
+      "type": "link",
+      "text": "History"
+    },
+    {
+      "type": "link",
+      "text": "Subcases 0"
+    },
+    {
+      "type": "link",
+      "text": "Forms 0"
+    },
+    {
+      "type": "link",
+      "text": "Files 1"
+    },
+    {
+      "type": "link",
+      "text": "Commitments 0"
+    },
+    {
+      "type": "link",
+      "text": "Child Cases 0"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Gowrishankar Kalaivanan"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Gowrishankar Kalaivanan"
+    },
+    {
+      "type": "link",
+      "text": "Gowrishankar Kalaivanan"
+    },
+    {
+      "type": "link",
+      "text": "Gowrishankar Kalaivanan"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Gowrishankar Kalaivanan"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Gowrishankar Kalaivanan"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Gowrishankar Kalaivanan"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Gowrishankar Kalaivanan"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Gowrishankar Kalaivanan"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Gowrishankar Kalaivanan"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Gowrishankar Kalaivanan"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Gowrishankar Kalaivanan"
+    },
+    {
+      "type": "link",
+      "text": "Gowrishankar Kalaivanan"
+    },
+    {
+      "type": "link",
+      "text": "testDocument.txt"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Gowrishankar Kalaivanan"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Benjamin Taylor"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Benjamin Taylor"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Evan Pappazisis"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Evan Pappazisis"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": "API User"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Evan Pappazisis"
+    },
+    {
+      "type": "link",
+      "text": "Evan Pappazisis"
+    },
+    {
+      "type": "link",
+      "text": "https://home.commonwealth.com/applications/app360/Overview.aspx?ihhid=1913685"
+    },
+    {
+      "type": "link",
+      "text": "Evan Pappazisis"
+    }
+  ],
+  "capture_url": "https://home.commonwealth.com/Applications/BOS/support/cases/24910726"
+}

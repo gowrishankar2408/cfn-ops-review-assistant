@@ -1,0 +1,9 @@
+{
+  "request_id": "DISC-b7fdb721-eb7a-4543-b872-9aca88d69e6a",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "incident_id": "INC-4a404ade-579c-433a-8d8d-f5381a8c77da",
+  "case_number": "24910726",
+  "status": "pending",
+  "created_at": "2026-10-01T10:54:58.246034"
+}
