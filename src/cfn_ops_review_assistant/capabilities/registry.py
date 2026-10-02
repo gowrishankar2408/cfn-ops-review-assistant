@@ -59,7 +59,7 @@ class CapabilityRegistry:
             / "cfn_ops_review_assistant"
             / "capabilities"
             / capability_name
-            / f"v{version}.json"
+            / f"v{version.split('.')[0]}.json"
         )
 
         with open(
@@ -67,3 +67,14 @@ class CapabilityRegistry:
             encoding="utf-8",
         ) as f:
             return json.load(f)
+
+    def get_next_version(self,capability_name: str,) -> str:
+        artifact = self.load_artifact(
+            capability_name
+        )
+
+        current = artifact["version"]
+
+        major, minor = current.split(".")
+
+        return f"{int(major)+1}.0"

@@ -1,11 +1,10 @@
 {
-  "request_id": "DISC-b7fdb721-eb7a-4543-b872-9aca88d69e6a",
+  "incident_id": "INC-6bafc26d-148a-4a1e-9a4c-00b47c70e448",
   "capability": "pps-custom-expiration",
   "version": "1.0",
-  "incident_id": "INC-4a404ade-579c-433a-8d8d-f5381a8c77da",
   "case_number": "24910726",
   "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"link\", name=\"Validate\")\n",
-  "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png",
+  "timestamp": "2026-10-01T23:00:37.202183",
   "failed_step": {
     "action": "click",
     "target": {
@@ -13,44 +12,7 @@
       "name": "Validate"
     }
   },
-  "capture_url": "https://home.commonwealth.com/Applications/BOS/support/cases/24910726",
-  "generated_at": "2026-10-01T13:58:56.951795",
-  "artifact": {
-    "name": "pps-custom-expiration",
-    "version": "1.0",
-    "inputs": {
-      "case_number": "string"
-    },
-    "outputs": {
-      "status": "string"
-    },
-    "steps": [
-      {
-        "action": "click",
-        "target": {
-          "role": "link",
-          "name": "Edit"
-        }
-      },
-      {
-        "action": "check",
-        "target": {
-          "role": "checkbox",
-          "name": "Exception Granted"
-        }
-      },
-      {
-        "action": "click",
-        "target": {
-          "role": "button",
-          "name": "Update Case"
-        }
-      }
-    ],
-    "checkpoint": {
-      "text": "Exception Granted on Case"
-    }
-  },
+  "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png",
   "visible_controls": [
     {
       "type": "button",
@@ -484,5 +446,6 @@
       "type": "link",
       "text": "Evan Pappazisis"
     }
-  ]
+  ],
+  "capture_url": "https://home.commonwealth.com/Applications/BOS/support/cases/24910726"
 }

@@ -1,0 +1,79 @@
+{
+  "incident_id": "INC-3e361d1e-9fe1-49dc-9995-1bfe222dd7f3",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Update Notes\")\n",
+  "timestamp": "2026-10-02T00:19:37.566830",
+  "failed_step": {
+    "action": "click",
+    "target": {
+      "role": "button",
+      "name": "Update Notes"
+    }
+  },
+  "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png",
+  "visible_controls": [
+    {
+      "type": "button",
+      "text": ""
+    },
+    {
+      "type": "button",
+      "text": ""
+    },
+    {
+      "type": "button",
+      "text": "AutoFill"
+    },
+    {
+      "type": "button",
+      "text": "AutoFill"
+    },
+    {
+      "type": "button",
+      "text": "Update Case"
+    },
+    {
+      "type": "button",
+      "text": "Cancel"
+    },
+    {
+      "type": "link",
+      "text": "Case Manager"
+    },
+    {
+      "type": "link",
+      "text": "Create Case"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Admin"
+    },
+    {
+      "type": "link",
+      "text": "Echo Bot"
+    },
+    {
+      "type": "link",
+      "text": "\u00d7"
+    },
+    {
+      "type": "link",
+      "text": "\u00d7"
+    },
+    {
+      "type": "checkbox",
+      "text": null
+    },
+    {
+      "type": "checkbox",
+      "text": null
+    }
+  ],
+  "capture_url": "https://home.commonwealth.com/Applications/BOS/support/cases/edit/24910726"
+}

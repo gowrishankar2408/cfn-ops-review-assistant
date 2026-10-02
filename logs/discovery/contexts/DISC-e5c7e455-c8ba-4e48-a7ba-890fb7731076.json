@@ -1,0 +1,49 @@
+{
+  "request_id": "DISC-e5c7e455-c8ba-4e48-a7ba-890fb7731076",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "incident_id": "INC-6fc15bc4-0f64-4dda-9c52-653a5774e2f3",
+  "case_number": "24910726",
+  "error": "SurfaceAdapter.get_visible_controls() takes 1 positional argument but 2 were given",
+  "screenshot": null,
+  "failed_step": null,
+  "capture_url": null,
+  "generated_at": "2026-10-02T01:08:35.770945",
+  "artifact": {
+    "name": "pps-custom-expiration",
+    "version": "3.0",
+    "inputs": {
+      "case_number": "string"
+    },
+    "outputs": {
+      "status": "string"
+    },
+    "steps": [
+      {
+        "action": "click",
+        "target": {
+          "role": "link",
+          "name": "Validate"
+        }
+      },
+      {
+        "action": "check",
+        "target": {
+          "role": "checkbox",
+          "name": "Exception Granted"
+        }
+      },
+      {
+        "action": "click",
+        "target": {
+          "role": "button",
+          "name": "Update Case"
+        }
+      }
+    ],
+    "checkpoint": {
+      "text": "Exception Granted on Case"
+    }
+  },
+  "visible_controls": null
+}

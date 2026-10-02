@@ -1,7 +1,5 @@
 '''PPS Custom Expiration Review Process'''
-import os
-import requests
-
+from cfn_ops_review_assistant.capabilities.registry import CapabilityRegistry
 from cfn_ops_review_assistant.services.crm_service import CRMService
 from cfn_ops_review_assistant.models.models import ReviewResult
 from cfn_ops_review_assistant.services.surface_helper import SurfaceAdapter
@@ -12,19 +10,22 @@ def review(case_number: str, token: str) -> ReviewResult:
     process = CRMService()
     adaptor = SurfaceAdapter()
     try:
+        artifact = (
+                CapabilityRegistry()
+                .load_artifact(
+                "pps-custom-expiration"
+                )
+            )
         current_step = "launch_case"
         adaptor.launch_case(
             case_number,
             token,
             )
-        current_step = {
-                    "action": "click",
-                    "target": {
-                        "role": "link",
-                        "name": "Validate"
-                    }
-                }
-
+        for step in artifact["steps"]:
+            current_step = step
+            adaptor.execute_step(step)
+            
+        '''
         adaptor.click_edit()
         current_step = {
                     "action": "check",
@@ -43,6 +44,7 @@ def review(case_number: str, token: str) -> ReviewResult:
                 }
         adaptor.click_update_case()
         current_step = "validate_exception_granted"
+        '''
         success = adaptor.validate_exception_granted()
         return ReviewResult(
             case_number=case_number,
@@ -55,7 +57,7 @@ def review(case_number: str, token: str) -> ReviewResult:
         print("Exception occurred.")
         ex.failed_step = current_step
         ex.capture_url = adaptor.capture_url(case_number)
-        ex.visible_controls = adaptor.get_visible_controls(case_number)
+        ex.visible_controls = adaptor.get_visible_controls()
         #ex.page_text = adaptor.capture_page_text(case_number)
         ex.screenshot_path = (adaptor.capture_screenshot(case_number))
 

@@ -1,0 +1,60 @@
+{
+    "name": "pps-custom-expiration",
+    "version": "3.0",
+    "inputs": {
+        "case_number": "string"
+    },
+    "outputs": {
+        "status": "string"
+    },
+    "steps": [
+        {
+            "action": "click",
+            "target": {
+                "role": "link",
+                "name": "Edit"
+            }
+        },
+        {
+            "action": "check",
+            "target": {
+                "role": "checkbox",
+                "name": "Exception Granted"
+            }
+        },
+        {
+            "action": "click",
+            "target": {
+                "role": "button",
+                "name": "Update Case"
+            }
+        }
+    ],
+    "checkpoint": {
+        "text": "Exception Granted on Case"
+    },
+    "status": "candidate",
+    "generated_from": {
+        "request_id": "DISC-0b563ef4-6868-4456-b23e-885cca4e6845",
+        "incident_id": "INC-3e361d1e-9fe1-49dc-9995-1bfe222dd7f3"
+    },
+    "analysis": {
+        "failure_type": "locator_update",
+        "root_cause": "",
+        "artifact_changes": [
+            {
+                "step": "Click the Update Notes button",
+                "change_type": "locator_update",
+                "current": {
+                    "role": "button",
+                    "name": "Update Notes"
+                },
+                "proposed": {
+                    "role": "button",
+                    "name": "Update Case"
+                },
+                "confidence": "high"
+            }
+        ]
+    }
+}

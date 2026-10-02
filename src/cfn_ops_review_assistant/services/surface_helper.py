@@ -109,40 +109,169 @@ class SurfaceAdapter:
             "body"
         ).inner_text()
     
-    def get_visible_controls(self,incident_id: str,) -> str:
+    def get_visible_controls(self):
+
         controls = []
+
+        ignored_controls = {
+            "Case Manager",
+            "Create Case",
+            "Admin",
+            "Echo Bot",
+            "History",
+            "Forms 0",
+            "Files 1",
+            "Commitments 0",
+            "Child Cases 0",
+            "Subcases 0",
+            "You",
+            "0",
+            "testDocument.txt",
+        }
+
+        action_keywords = {
+            "edit",
+            "update",
+            "save",
+            "submit",
+            "cancel",
+            "open",
+            "close",
+            "validate",
+            "approve",
+            "reject",
+            "reassign",
+            "exception",
+        }
+
+        def should_include(name: str) -> bool:
+
+            if not name:
+                return False
+
+            name = name.strip()
+
+            if not name:
+                return False
+
+            if name in ignored_controls:
+                return False
+
+            if name.startswith("http"):
+                return False
+
+            if any(
+                keyword in name.lower()
+                for keyword in action_keywords
+            ):
+                return True
+
+            return False
 
         # Buttons
         for el in self.page.get_by_role("button").all():
             try:
+
+                name = el.inner_text().strip()
+
+                if not should_include(name):
+                    continue
+
                 controls.append({
-                    "type": "button",
-                    "text": el.inner_text().strip()
+                    "role": "button",
+                    "name": name
                 })
+
             except Exception:
                 pass
 
         # Links
         for el in self.page.get_by_role("link").all():
             try:
+
+                name = el.inner_text().strip()
+
+                if not should_include(name):
+                    continue
+
                 controls.append({
-                    "type": "link",
-                    "text": el.inner_text().strip()
+                    "role": "link",
+                    "name": name
                 })
+
             except Exception:
                 pass
 
         # Checkboxes
         for el in self.page.get_by_role("checkbox").all():
             try:
+
+                name = (
+                    el.get_attribute("aria-label")
+                    or ""
+                ).strip()
+
+                if not should_include(name):
+                    continue
+
                 controls.append({
-                    "type": "checkbox",
-                    "text": el.get_attribute("aria-label")
+                    "role": "checkbox",
+                    "name": name
                 })
+
             except Exception:
                 pass
 
-        return controls
+        # Remove duplicates
+        unique_controls = []
+
+        seen = set()
+
+        for control in controls:
+
+            key = (
+                control["role"],
+                control["name"]
+            )
+
+            if key in seen:
+                continue
+
+            seen.add(key)
+
+            unique_controls.append(control)
+
+        return unique_controls
+
+    def execute_step(self,step: dict,):
+
+        action = step["action"]
+
+        target = step["target"]
+
+        role = target["role"]
+
+        name = target["name"]
+
+        if action == "click":
+
+            self.page.get_by_role(
+                role,
+                name=name
+            ).click()
+
+        elif action == "check":
+
+            self.page.get_by_role(
+                role,
+                name=name
+            ).check()
+
+        else:
+
+            raise RuntimeError(
+                f"Unsupported action: {action}"
+            )
         
 
     def close(self):

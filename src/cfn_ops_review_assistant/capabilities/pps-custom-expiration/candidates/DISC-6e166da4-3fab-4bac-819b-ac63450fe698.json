@@ -1,6 +1,6 @@
 {
     "name": "pps-custom-expiration",
-    "version": "1.0",
+    "version": "4.0",
     "inputs": {
         "case_number": "string"
     },
@@ -32,5 +32,15 @@
     ],
     "checkpoint": {
         "text": "Exception Granted on Case"
+    },
+    "status": "candidate",
+    "generated_from": {
+        "request_id": "DISC-6e166da4-3fab-4bac-819b-ac63450fe698",
+        "incident_id": "INC-057127e7-3869-454b-8cef-9a8c27d987ee"
+    },
+    "analysis": {
+        "failure_type": "replacement_not_found",
+        "root_cause": "",
+        "artifact_changes": []
     }
 }

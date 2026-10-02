@@ -8,6 +8,7 @@ from cfn_ops_review_assistant.services.token_service import Commlinksession
 from cfn_ops_review_assistant.services.crm_service import CRMService
 from cfn_ops_review_assistant.services.setup_service import SetupService
 from cfn_ops_review_assistant.discovery.discovery_engine import DiscoveryEngine
+from cfn_ops_review_assistant.discovery.publish_manager import PublishManager
 
 def build_parser() -> argparse.ArgumentParser:
 
@@ -54,6 +55,21 @@ def build_parser() -> argparse.ArgumentParser:
             "--request-id",
             required=True,
         )
+
+    publish_parser = subparsers.add_parser(
+                "publish",
+                help="Publish a candidate capability.",
+            )
+            
+    publish_parser.add_argument(
+                "--request-id",
+                required=True,
+            )
+    
+    publish_parser.add_argument(
+                    "--capability-name",
+                    required=True,
+                )
 
     return parser
 
@@ -108,6 +124,10 @@ def main(
 
     if args.command == "discover":
         DiscoveryEngine().discover(args.request_id)
+        return 0
+    
+    if args.command == "publish":
+        PublishManager().publish(args.request_id, args.capability_name)
         return 0
 
     if args.command == "review":

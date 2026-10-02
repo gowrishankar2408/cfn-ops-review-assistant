@@ -1,0 +1,1 @@
+{"failure_type": "UI Drift", "root_cause": "Expected link 'Validate' was not found. A link named 'Edit' is present and appears to replace it.", "artifact_changes": [{"step": "click_validate", "change_type": "locator_update", "current": {"role": "link", "name": "Validate"}, "proposed": {"role": "link", "name": "Edit"}, "confidence": "high"}]}

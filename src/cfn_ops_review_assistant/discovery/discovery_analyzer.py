@@ -8,6 +8,11 @@ class DiscoveryAnalyzer:
         self,
         context: dict,
     ):
+        print("=" * 50)
+        print(context["failed_step"])
+        print("=" * 50)
+
+        print(context["artifact"])
         prompt = DISCOVERY_PROMPT.format(
             capability=context["capability"],
             version=context["version"],
@@ -18,6 +23,9 @@ class DiscoveryAnalyzer:
             visible_controls=context["visible_controls"]
             
         )
+        print("=" * 50)
+        print(prompt)
+        print("=" * 50)
         response = (
             OllamaClient()
             .chat(prompt)

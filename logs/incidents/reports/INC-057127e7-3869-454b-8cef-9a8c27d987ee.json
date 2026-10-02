@@ -1,0 +1,127 @@
+{
+  "incident_id": "INC-057127e7-3869-454b-8cef-9a8c27d987ee",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"link\", name=\"Validate\")\n",
+  "timestamp": "2026-10-02T00:54:10.127334",
+  "failed_step": {
+    "action": "click",
+    "target": {
+      "role": "link",
+      "name": "Validate"
+    }
+  },
+  "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png",
+  "visible_controls": [
+    {
+      "role": "button",
+      "name": "Open"
+    },
+    {
+      "role": "link",
+      "name": "You"
+    },
+    {
+      "role": "link",
+      "name": "0"
+    },
+    {
+      "role": "link",
+      "name": "Edit"
+    },
+    {
+      "role": "link",
+      "name": "Gowrishankar Kalaivanan"
+    },
+    {
+      "role": "link",
+      "name": "Gowrishankar Kalaivanan"
+    },
+    {
+      "role": "link",
+      "name": "Gowrishankar Kalaivanan"
+    },
+    {
+      "role": "link",
+      "name": "Gowrishankar Kalaivanan"
+    },
+    {
+      "role": "link",
+      "name": "Gowrishankar Kalaivanan"
+    },
+    {
+      "role": "link",
+      "name": "Gowrishankar Kalaivanan"
+    },
+    {
+      "role": "link",
+      "name": "Gowrishankar Kalaivanan"
+    },
+    {
+      "role": "link",
+      "name": "Gowrishankar Kalaivanan"
+    },
+    {
+      "role": "link",
+      "name": "Gowrishankar Kalaivanan"
+    },
+    {
+      "role": "link",
+      "name": "Gowrishankar Kalaivanan"
+    },
+    {
+      "role": "link",
+      "name": "Gowrishankar Kalaivanan"
+    },
+    {
+      "role": "link",
+      "name": "Gowrishankar Kalaivanan"
+    },
+    {
+      "role": "link",
+      "name": "Gowrishankar Kalaivanan"
+    },
+    {
+      "role": "link",
+      "name": "testDocument.txt"
+    },
+    {
+      "role": "link",
+      "name": "Gowrishankar Kalaivanan"
+    },
+    {
+      "role": "link",
+      "name": "Benjamin Taylor"
+    },
+    {
+      "role": "link",
+      "name": "Benjamin Taylor"
+    },
+    {
+      "role": "link",
+      "name": "Evan Pappazisis"
+    },
+    {
+      "role": "link",
+      "name": "Evan Pappazisis"
+    },
+    {
+      "role": "link",
+      "name": "Evan Pappazisis"
+    },
+    {
+      "role": "link",
+      "name": "Evan Pappazisis"
+    },
+    {
+      "role": "link",
+      "name": "https://home.commonwealth.com/applications/app360/Overview.aspx?ihhid=1913685"
+    },
+    {
+      "role": "link",
+      "name": "Evan Pappazisis"
+    }
+  ],
+  "capture_url": "https://home.commonwealth.com/Applications/BOS/support/cases/24910726"
+}

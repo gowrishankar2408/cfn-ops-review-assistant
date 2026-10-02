@@ -1,0 +1,12 @@
+{
+  "incident_id": "INC-6fc15bc4-0f64-4dda-9c52-653a5774e2f3",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "SurfaceAdapter.get_visible_controls() takes 1 positional argument but 2 were given",
+  "timestamp": "2026-10-02T01:00:41.249148",
+  "failed_step": null,
+  "screenshot": null,
+  "visible_controls": null,
+  "capture_url": null
+}

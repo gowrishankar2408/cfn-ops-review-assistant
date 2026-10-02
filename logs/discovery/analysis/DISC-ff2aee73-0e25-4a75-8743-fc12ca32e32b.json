@@ -1,0 +1,1 @@
+{"failure_type": "locator_update", "root_cause": "The locator of the failed control has been replaced by a visible control.", "artifact_changes": [{"step": "click link: name='Validate'", "change_type": "locator_update", "current": {"role": "link", "name": "Validate"}, "proposed": {"role": "link", "name": "Edit"}, "confidence": "medium"}]}

@@ -1,8 +1,8 @@
 {
-  "request_id": "DISC-b7fdb721-eb7a-4543-b872-9aca88d69e6a",
+  "request_id": "DISC-99b6a238-3f6b-4861-93b3-7509db8de8ba",
   "capability": "pps-custom-expiration",
   "version": "1.0",
-  "incident_id": "INC-4a404ade-579c-433a-8d8d-f5381a8c77da",
+  "incident_id": "INC-c9c1ee8e-b0c6-4786-b9cf-208e7bfa7dc8",
   "case_number": "24910726",
   "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"link\", name=\"Validate\")\n",
   "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png",
@@ -14,10 +14,10 @@
     }
   },
   "capture_url": "https://home.commonwealth.com/Applications/BOS/support/cases/24910726",
-  "generated_at": "2026-10-01T13:58:56.951795",
+  "generated_at": "2026-10-01T16:18:33.378486",
   "artifact": {
     "name": "pps-custom-expiration",
-    "version": "1.0",
+    "version": "2.0",
     "inputs": {
       "case_number": "string"
     },
@@ -29,7 +29,7 @@
         "action": "click",
         "target": {
           "role": "link",
-          "name": "Edit"
+          "name": "Validate"
         }
       },
       {
@@ -49,6 +49,30 @@
     ],
     "checkpoint": {
       "text": "Exception Granted on Case"
+    },
+    "status": "candidate",
+    "generated_from": {
+      "request_id": "DISC-b7fdb721-eb7a-4543-b872-9aca88d69e6a",
+      "incident_id": "INC-4a404ade-579c-433a-8d8d-f5381a8c77da"
+    },
+    "analysis": {
+      "failure_type": "UI Drift",
+      "root_cause": "Expected link 'Validate' was not found. A link named 'Edit' is present and appears to replace it.",
+      "artifact_changes": [
+        {
+          "step": "click_edit",
+          "change_type": "locator_update",
+          "current": {
+            "role": "link",
+            "name": "Validate"
+          },
+          "proposed": {
+            "role": "link",
+            "name": "Edit"
+          },
+          "confidence": "high"
+        }
+      ]
     }
   },
   "visible_controls": [

@@ -1,0 +1,140 @@
+{
+  "request_id": "DISC-29e2b339-f5bd-4929-b15c-646308fdc86d",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "incident_id": "INC-c4220ac5-174c-495a-8af5-ce25610fe971",
+  "case_number": "24910726",
+  "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Update Notes\")\n",
+  "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png",
+  "failed_step": {
+    "action": "click",
+    "target": {
+      "role": "button",
+      "name": "Update Notes"
+    }
+  },
+  "capture_url": "https://home.commonwealth.com/Applications/BOS/support/cases/edit/24910726",
+  "generated_at": "2026-10-01T23:56:03.233135",
+  "artifact": {
+    "name": "pps-custom-expiration",
+    "version": "2.0",
+    "inputs": {
+      "case_number": "string"
+    },
+    "outputs": {
+      "status": "string"
+    },
+    "steps": [
+      {
+        "action": "click",
+        "target": {
+          "role": "link",
+          "name": "Edit"
+        }
+      },
+      {
+        "action": "check",
+        "target": {
+          "role": "checkbox",
+          "name": "Exception Granted"
+        }
+      },
+      {
+        "action": "click",
+        "target": {
+          "role": "button",
+          "name": "Update Notes"
+        }
+      }
+    ],
+    "checkpoint": {
+      "text": "Exception Granted on Case"
+    },
+    "status": "candidate",
+    "generated_from": {
+      "request_id": "DISC-5672b88c-3265-4a99-8b1b-1885cfc8aa95",
+      "incident_id": "INC-6bafc26d-148a-4a1e-9a4c-00b47c70e448"
+    },
+    "analysis": {
+      "failure_type": "UI Drift",
+      "root_cause": "Expected link 'Validate' was not found. A link named 'Edit' is present and appears to replace it.",
+      "artifact_changes": [
+        {
+          "step": "click_edit",
+          "change_type": "locator_update",
+          "current": {
+            "role": "link",
+            "name": "Validate"
+          },
+          "proposed": {
+            "role": "link",
+            "name": "Edit"
+          },
+          "confidence": "high"
+        }
+      ]
+    }
+  },
+  "visible_controls": [
+    {
+      "type": "button",
+      "text": ""
+    },
+    {
+      "type": "button",
+      "text": ""
+    },
+    {
+      "type": "button",
+      "text": "AutoFill"
+    },
+    {
+      "type": "button",
+      "text": "AutoFill"
+    },
+    {
+      "type": "button",
+      "text": "Update Case"
+    },
+    {
+      "type": "button",
+      "text": "Cancel"
+    },
+    {
+      "type": "link",
+      "text": "Case Manager"
+    },
+    {
+      "type": "link",
+      "text": "Create Case"
+    },
+    {
+      "type": "link",
+      "text": ""
+    },
+    {
+      "type": "link",
+      "text": "Admin"
+    },
+    {
+      "type": "link",
+      "text": "Echo Bot"
+    },
+    {
+      "type": "link",
+      "text": "\u00d7"
+    },
+    {
+      "type": "link",
+      "text": "\u00d7"
+    },
+    {
+      "type": "checkbox",
+      "text": null
+    },
+    {
+      "type": "checkbox",
+      "text": null
+    }
+  ]
+}

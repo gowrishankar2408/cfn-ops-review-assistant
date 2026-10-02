@@ -1,6 +1,6 @@
 {
     "name": "pps-custom-expiration",
-    "version": "1.0",
+    "version": "5.0",
     "inputs": {
         "case_number": "string"
     },
@@ -12,7 +12,7 @@
             "action": "click",
             "target": {
                 "role": "link",
-                "name": "Validate"
+                "name": "Edit"
             }
         },
         {

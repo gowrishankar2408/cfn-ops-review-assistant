@@ -1,0 +1,12 @@
+{
+  "incident_id": "INC-6aca40cb-1c59-4dee-8261-2ae7be9c1373",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "cannot access local variable 'current_step' where it is not associated with a value",
+  "timestamp": "2026-10-01T23:59:13.850143",
+  "failed_step": null,
+  "screenshot": null,
+  "visible_controls": null,
+  "capture_url": null
+}

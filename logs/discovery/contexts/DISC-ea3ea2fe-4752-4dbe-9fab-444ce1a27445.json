@@ -1,8 +1,8 @@
 {
-  "request_id": "DISC-b7fdb721-eb7a-4543-b872-9aca88d69e6a",
+  "request_id": "DISC-ea3ea2fe-4752-4dbe-9fab-444ce1a27445",
   "capability": "pps-custom-expiration",
   "version": "1.0",
-  "incident_id": "INC-4a404ade-579c-433a-8d8d-f5381a8c77da",
+  "incident_id": "INC-c8bec248-c066-4d29-b017-e3d5a9ff5237",
   "case_number": "24910726",
   "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"link\", name=\"Validate\")\n",
   "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png",
@@ -14,10 +14,10 @@
     }
   },
   "capture_url": "https://home.commonwealth.com/Applications/BOS/support/cases/24910726",
-  "generated_at": "2026-10-01T13:58:56.951795",
+  "generated_at": "2026-10-02T00:40:52.789336",
   "artifact": {
     "name": "pps-custom-expiration",
-    "version": "1.0",
+    "version": "3.0",
     "inputs": {
       "case_number": "string"
     },
@@ -29,7 +29,7 @@
         "action": "click",
         "target": {
           "role": "link",
-          "name": "Edit"
+          "name": "Validate"
         }
       },
       {

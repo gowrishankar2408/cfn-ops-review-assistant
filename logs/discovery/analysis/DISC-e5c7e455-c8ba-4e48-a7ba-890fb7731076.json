@@ -1,0 +1,1 @@
+{"failure_type": "locator_update", "root_cause": "SurfaceAdapter.get_visible_controls() takes 1 positional argument but 2 were given", "artifact_changes": [{"step": "click, target={'role': 'link', 'name': 'Validate'}", "change_type": "locator_update", "current": {"role": "link", "name": "Validate"}, "proposed": {"role": "link", "name": "Validate"}, "confidence": "low"}]}
