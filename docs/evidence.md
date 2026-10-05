@@ -7,6 +7,8 @@ Evidence:
 - Published Capability
 - Replay Success
 
+Location : /logs/evidence
+
 Scenario 1 :
 
 CRM UI was having "Edit" button but the capability was forced to find "validate" button
