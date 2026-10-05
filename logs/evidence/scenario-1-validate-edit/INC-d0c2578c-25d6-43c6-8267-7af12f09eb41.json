@@ -1,0 +1,27 @@
+{
+  "incident_id": "INC-d0c2578c-25d6-43c6-8267-7af12f09eb41",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"link\", name=\"Validate\")\n",
+  "timestamp": "2026-10-02T14:55:42.111919",
+  "failed_step": {
+    "action": "click",
+    "target": {
+      "role": "link",
+      "name": "Validate"
+    }
+  },
+  "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png",
+  "visible_controls": [
+    {
+      "role": "button",
+      "name": "Open"
+    },
+    {
+      "role": "link",
+      "name": "Edit"
+    }
+  ],
+  "capture_url": "XXXX/24910726"
+}

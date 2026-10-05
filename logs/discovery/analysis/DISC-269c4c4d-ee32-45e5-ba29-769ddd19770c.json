@@ -1,0 +1,1 @@
+{"failure_type": "locator_update", "root_cause": "The failed control was replaced by the visible control", "artifact_changes": [{"step": "The failed step", "change_type": "locator_update", "current": {"role": "button", "name": "Edit Case"}, "proposed": {"role": "button", "name": "Update Case"}, "confidence": "high"}]}

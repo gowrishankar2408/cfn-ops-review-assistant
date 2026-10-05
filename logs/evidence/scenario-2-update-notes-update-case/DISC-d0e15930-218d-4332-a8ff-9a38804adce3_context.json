@@ -1,0 +1,64 @@
+{
+  "request_id": "DISC-d0e15930-218d-4332-a8ff-9a38804adce3",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "incident_id": "INC-1db1127b-f013-4061-be22-85f2567a38f5",
+  "case_number": "24910726",
+  "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Edit Case\")\n",
+  "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png",
+  "failed_step": {
+    "action": "click",
+    "target": {
+      "role": "button",
+      "name": "Edit Case"
+    }
+  },
+  "capture_url": "https://home.commonwealth.com/Applications/BOS/support/cases/edit/24910726",
+  "generated_at": "2026-10-05T10:43:05.486430",
+  "artifact": {
+    "name": "pps-custom-expiration",
+    "version": "2.0",
+    "inputs": {
+      "case_number": "string"
+    },
+    "outputs": {
+      "status": "string"
+    },
+    "steps": [
+      {
+        "action": "click",
+        "target": {
+          "role": "link",
+          "name": "Edit"
+        }
+      },
+      {
+        "action": "check",
+        "target": {
+          "role": "checkbox",
+          "name": "Exception Granted"
+        }
+      },
+      {
+        "action": "click",
+        "target": {
+          "role": "button",
+          "name": "Edit Case"
+        }
+      }
+    ],
+    "checkpoint": {
+      "text": "Exception Granted on Case"
+    }
+  },
+  "visible_controls": [
+    {
+      "role": "button",
+      "name": "Update Case"
+    },
+    {
+      "role": "button",
+      "name": "Cancel"
+    }
+  ]
+}

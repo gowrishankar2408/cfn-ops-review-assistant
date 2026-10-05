@@ -1,0 +1,1 @@
+{"failure_type": "locator_update", "root_cause": "", "artifact_changes": [{"step": "click a button", "change_type": "locator_update", "current": {"role": "button", "name": "Edit Case"}, "proposed": {"role": "button", "name": "Update Case"}, "confidence": "medium"}]}

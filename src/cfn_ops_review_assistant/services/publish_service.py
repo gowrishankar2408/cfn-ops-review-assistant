@@ -87,3 +87,4 @@ class PublishService:
                 "latest_version": f"{candidate_version[0]}.{candidate_version[1]}",
                 "status": "active"
             }, f)
+        return published_file
