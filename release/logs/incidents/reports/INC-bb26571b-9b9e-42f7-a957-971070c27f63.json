@@ -1,0 +1,12 @@
+{
+  "incident_id": "INC-bb26571b-9b9e-42f7-a957-971070c27f63",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "'NoneType' object has no attribute 'get_by_role'",
+  "timestamp": "2026-10-06T12:52:59.356562",
+  "failed_step": null,
+  "screenshot": null,
+  "visible_controls": null,
+  "capture_url": null
+}

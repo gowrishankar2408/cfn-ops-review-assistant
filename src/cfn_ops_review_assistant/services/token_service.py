@@ -6,7 +6,8 @@ import uuid
 from http.cookies import SimpleCookie
 import sys, time, datetime
 from dotenv import load_dotenv
-load_dotenv()
+from cfn_ops_review_assistant.utils.path_utils import get_project_root
+load_dotenv(get_project_root() / ".env")
 
 class Commlinksession():
     """

@@ -1,5 +1,7 @@
 import json
 from pathlib import Path
+from cfn_ops_review_assistant.utils.path_utils import get_project_root
+from cfn_ops_review_assistant.capabilities.get_capabilities_root import get_capabilities_root
 from cfn_ops_review_assistant.capabilities.psr_review_capability import PSRReviewCapability
 from cfn_ops_review_assistant.capabilities.pps_custom_expiration_capability import PPSCustomExpirationCapability
 
@@ -27,12 +29,8 @@ class CapabilityRegistry:
         self,
         capability_name: str,
     ):
-        project_root = (Path(__file__).resolve().parents[3])
         metadata_file = (
-            project_root
-            / "src"
-            / "cfn_ops_review_assistant"
-            / "capabilities"
+            get_capabilities_root()
             / capability_name
             / "metadata.json"
         )
@@ -52,12 +50,8 @@ class CapabilityRegistry:
         version = metadata[
             "latest_version"
         ]
-        project_root = (Path(__file__).resolve().parents[3])
         artifact_file = (
-            project_root
-            / "src"
-            / "cfn_ops_review_assistant"
-            / "capabilities"
+            get_capabilities_root()
             / capability_name
             / f"v{version.split('.')[0]}.json"
         )

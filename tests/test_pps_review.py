@@ -1,6 +1,7 @@
 from cfn_ops_review_assistant.services.surface_helper import SurfaceAdapter
-import dotenv
-dotenv.load_dotenv()
+from dotenv import load_dotenv
+from cfn_ops_review_assistant.utils.path_utils import get_project_root
+load_dotenv(get_project_root() / ".env")
 
 adapter = SurfaceAdapter()
 

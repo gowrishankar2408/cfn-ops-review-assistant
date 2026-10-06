@@ -1,0 +1,21 @@
+{
+    "name": "psr-review",
+    "version": "1.0",
+    "inputs": {
+        "case_number": "string"
+    },
+    "outputs": {
+        "comparison_result": "string"
+    },
+    "steps": [
+        {
+            "action": "retrieve_notes"
+        },
+        {
+            "action": "compare_notes"
+        }
+    ],
+    "checkpoint": {
+        "comparison_completed": true
+    }
+}

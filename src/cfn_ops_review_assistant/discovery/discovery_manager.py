@@ -1,6 +1,6 @@
 import json
 import uuid
-
+from cfn_ops_review_assistant.utils.path_utils import get_project_root
 from pathlib import Path
 from datetime import datetime
 
@@ -32,11 +32,7 @@ class DiscoveryManager:
             ),
         }
 
-        project_root = (
-            Path(__file__)
-            .resolve()
-            .parents[3]
-        )
+        project_root = get_project_root()
 
         request_dir = (
             project_root
@@ -69,7 +65,7 @@ class DiscoveryManager:
         ):
             requests = []
             request_dir = (
-                        Path(__file__).resolve().parents[3]
+                        get_project_root()
                         / "logs"
                         / "discovery"
                         / "requests"
@@ -91,7 +87,7 @@ class DiscoveryManager:
     ):
 
         request_dir = (
-            Path(__file__).resolve().parents[3]
+            get_project_root()
             / "logs"
             / "discovery"
             / "requests"
@@ -128,7 +124,7 @@ class DiscoveryManager:
         )
 
         request_file = (
-            Path(__file__).resolve().parents[3]
+            get_project_root()
             / "logs"
             / "discovery"
             / "requests"
@@ -161,7 +157,7 @@ class DiscoveryManager:
         )
 
         request_file = (
-            Path(__file__).resolve().parents[3]
+            get_project_root()
             / "logs"
             / "discovery"
             / "requests"
@@ -193,7 +189,7 @@ class DiscoveryManager:
         )
 
         request_file = (
-            Path(__file__).resolve().parents[3]
+            get_project_root()
             / "logs"
             / "discovery"
             / "requests"

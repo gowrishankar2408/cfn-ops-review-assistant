@@ -1,6 +1,6 @@
 from pathlib import Path
 import json
-
+from cfn_ops_review_assistant.capabilities.get_capabilities_root import get_capabilities_root
 from cfn_ops_review_assistant.capabilities.registry import CapabilityRegistry
 
 class CandidateGenerator:
@@ -85,17 +85,8 @@ class CandidateGenerator:
                     step["target"] = proposed
 
         # Candidate location
-        project_root = (
-            Path(__file__)
-            .resolve()
-            .parents[3]
-        )
-
         candidate_dir = (
-            project_root
-            / "src"
-            / "cfn_ops_review_assistant"
-            / "capabilities"
+            get_capabilities_root()
             / capability_name
             / "candidates"
         )

@@ -1,3 +1,5 @@
+from cfn_ops_review_assistant.utils.path_utils import get_project_root
+from cfn_ops_review_assistant.capabilities.get_capabilities_root import get_capabilities_root
 from pathlib import Path
 import shutil
 import json
@@ -5,12 +7,9 @@ import json
 class PublishService:
     def load_candidate(self, request_id: str, capability_name: str) -> None:
 
-        project_root = (Path(__file__).resolve().parents[3])
+        project_root = get_project_root()
         candidate_dir = (
-                    project_root
-                    / "src"
-                    / "cfn_ops_review_assistant"
-                    / "capabilities"
+                    get_capabilities_root()
                     / capability_name
                     / "candidates"
                 )
@@ -28,21 +27,15 @@ class PublishService:
     
     def promote_candidate(self, request_id: str, candidate_data: dict) -> None:
 
-        project_root = (Path(__file__).resolve().parents[3])
+        project_root = get_project_root()
         published_dir = (
-                    project_root
-                    / "src"
-                    / "cfn_ops_review_assistant"
-                    / "capabilities"
+                    get_capabilities_root()
                     / candidate_data["name"]
                 )
         candidate_version = candidate_data["version"].split('.')
         published_file = published_dir / f"v{candidate_version[0]}.json"
         candidate_file = (
-                    project_root
-                    / "src"
-                    / "cfn_ops_review_assistant"
-                    / "capabilities"
+                    get_capabilities_root()
                     / candidate_data["name"]
                     / "candidates"
                     / f"{request_id}.json"

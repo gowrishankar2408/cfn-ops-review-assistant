@@ -1,5 +1,6 @@
 from cfn_ops_review_assistant.llm.discovery_prompts import DISCOVERY_PROMPT
 from cfn_ops_review_assistant.llm.ollama_client import OllamaClient
+from cfn_ops_review_assistant.utils.path_utils import get_project_root
 from pathlib import Path
 import json
 class DiscoveryAnalyzer:
@@ -30,7 +31,7 @@ class DiscoveryAnalyzer:
         print(f"LLM Response: {response}")
         analysis = json.loads(response)
         print(f"LLM Analysis Result: {analysis}")
-        project_root = (Path(__file__).resolve().parents[3])
+        project_root = get_project_root()
         analysis_dir = (
             project_root
             / "logs"

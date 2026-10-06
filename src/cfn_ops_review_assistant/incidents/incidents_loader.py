@@ -1,3 +1,4 @@
+from cfn_ops_review_assistant.utils.path_utils import get_project_root
 from pathlib import Path
 import json
 
@@ -8,7 +9,7 @@ class IncidentLoader:
         ):
 
             incident_dir = (
-                Path(__file__).resolve().parents[3]
+                get_project_root()
                 / "logs"
                 / "incidents"
                 / "reports"

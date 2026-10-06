@@ -1,8 +1,10 @@
 import os
 from pathlib import Path
+from cfn_ops_review_assistant.utils.path_utils import get_project_root
 from playwright.sync_api import sync_playwright
-import dotenv
-dotenv.load_dotenv()
+from dotenv import load_dotenv
+from cfn_ops_review_assistant.utils.path_utils import get_project_root
+load_dotenv(get_project_root() / ".env")
 
 class SurfaceAdapter:
 
@@ -20,7 +22,6 @@ class SurfaceAdapter:
         browser_path = os.getenv(
             "PLAYWRIGHT_BROWSER_PATH"
         )
-
         if not browser_path:
             raise RuntimeError(
                 "PLAYWRIGHT_BROWSER_PATH not configured."
@@ -84,7 +85,9 @@ class SurfaceAdapter:
         return locator.is_visible()
 
     def capture_screenshot(self,incident_id: str,) -> str:
-        base_dir = Path(__file__).resolve().parents[3]
+        if not self.page:
+            return None
+        base_dir = get_project_root()
         screenshot_dir = (base_dir/ "logs"/ "incidents"/ "screenshots")
         screenshot_dir.mkdir(
                         parents=True,
@@ -101,10 +104,14 @@ class SurfaceAdapter:
         return str(screenshot_path)
 
     def capture_url(self, incident_id: str,) -> str:
+        if not self.page:
+            return None
         current_url = self.page.url
         return current_url
 
     def capture_page_text(self,incident_id: str,) -> str:
+        if not self.page:
+            return None
         return self.page.locator(
             "body"
         ).inner_text()

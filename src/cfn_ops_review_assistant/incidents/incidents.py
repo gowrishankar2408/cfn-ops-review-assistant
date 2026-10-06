@@ -1,6 +1,6 @@
 import json
 import uuid
-
+from cfn_ops_review_assistant.utils.path_utils import get_project_root
 from pathlib import Path
 from datetime import datetime
 
@@ -55,7 +55,7 @@ class IncidentManager:
             "capture_url":
                 capture_url,
         }
-        base_dir = Path(__file__).resolve().parents[3]
+        base_dir = get_project_root()
         reports_dir = (base_dir /"logs" /"incidents" /"reports"
         )
         print(f"Writing to: {reports_dir}")
