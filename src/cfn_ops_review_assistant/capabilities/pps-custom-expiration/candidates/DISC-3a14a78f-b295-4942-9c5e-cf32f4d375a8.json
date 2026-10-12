@@ -1,0 +1,60 @@
+{
+    "name": "pps-custom-expiration",
+    "version": "5.0",
+    "inputs": {
+        "case_number": "string"
+    },
+    "outputs": {
+        "status": "string"
+    },
+    "steps": [
+        {
+            "action": "click",
+            "target": {
+                "role": "link",
+                "name": "Edit"
+            }
+        },
+        {
+            "action": "check",
+            "target": {
+                "role": "checkbox",
+                "name": "Exception Granted"
+            }
+        },
+        {
+            "action": "click",
+            "target": {
+                "role": "button",
+                "name": "Update Case"
+            }
+        }
+    ],
+    "checkpoint": {
+        "text": "Exception Granted on Case"
+    },
+    "status": "candidate",
+    "generated_from": {
+        "request_id": "DISC-3a14a78f-b295-4942-9c5e-cf32f4d375a8",
+        "incident_id": "INC-f9b1d30f-bdc9-442b-95a1-71413f9efaa7"
+    },
+    "analysis": {
+        "failure_type": "locator_update",
+        "root_cause": "The Update Notes button was replaced with Update Case",
+        "artifact_changes": [
+            {
+                "step": "click the Update Notes button",
+                "change_type": "locator_update",
+                "current": {
+                    "role": "button",
+                    "name": "Update Notes"
+                },
+                "proposed": {
+                    "role": "button",
+                    "name": "Update Case"
+                },
+                "confidence": "medium"
+            }
+        ]
+    }
+}

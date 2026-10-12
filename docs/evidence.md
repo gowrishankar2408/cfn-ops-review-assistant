@@ -1,0 +1,38 @@
+Evidence:
+- Incident
+- Discovery Request
+- Discovery Context
+- Analysis
+- Candidate Capability
+- Published Capability
+- Replay Success
+
+Scenario 1 :
+
+CRM UI was having "Edit" button but the capability was forced to find "validate" button
+
+Validate -> Edit
+
+Result:
+Capability v2 generated
+
+Published:
+Yes
+
+Replay Success:
+Yes
+
+Scenario 2:
+
+CRM UI was having "Update case" button but the capability was forced to find "Edit Case" button
+
+Edit Case -> Update Case
+
+Result:
+Capability v3 generated
+
+Published:
+Yes
+
+Replay Success:
+Yes

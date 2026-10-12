@@ -4,7 +4,9 @@ from cfn_ops_review_assistant.utils.path_utils import get_project_root
 from playwright.sync_api import sync_playwright
 from dotenv import load_dotenv
 from cfn_ops_review_assistant.utils.path_utils import get_project_root
+from cfn_ops_review_assistant.agent.control_describer import KNOWN_CONTROLS as controls
 load_dotenv(get_project_root() / ".env")
+
 
 class SurfaceAdapter:
 
@@ -149,6 +151,9 @@ class SurfaceAdapter:
             "reject",
             "reassign",
             "exception",
+            "workflow",
+            "logs",
+            "actions"
         }
 
         def should_include(name: str) -> bool:
@@ -186,12 +191,13 @@ class SurfaceAdapter:
 
                 controls.append({
                     "role": "button",
-                    "name": name
+                    "name": name,
+                    "description": "",
+                    "children": []
                 })
 
             except Exception:
                 pass
-
         # Links
         for el in self.page.get_by_role("link").all():
             try:
@@ -203,12 +209,32 @@ class SurfaceAdapter:
 
                 controls.append({
                     "role": "link",
-                    "name": name
+                    "name": name,
+                    "description": controls.get(name, {}).get("description", ""),
+                    "children": controls.get(name, {}).get("children", [])
                 })
 
             except Exception:
                 pass
+        #anchors
+        for el in self.page.locator("a").all():
+            #print(el.inner_text().strip())
+            try:
 
+                name = el.inner_text().strip()
+
+                if not should_include(name):
+                    continue
+
+                controls.append({
+                    "role": "link",
+                    "name": name,
+                    "description": controls.get(name, {}).get("description", ""),
+                    "children": controls.get(name, {}).get("children", [])
+                })
+
+            except Exception:
+                pass
         # Checkboxes
         for el in self.page.get_by_role("checkbox").all():
             try:
@@ -223,7 +249,9 @@ class SurfaceAdapter:
 
                 controls.append({
                     "role": "checkbox",
-                    "name": name
+                    "name": name,
+                    "description": controls.get(name, {}).get("description", ""),
+                    "children": controls.get(name, {}).get("children", [])
                 })
 
             except Exception:
@@ -238,7 +266,9 @@ class SurfaceAdapter:
 
             key = (
                 control["role"],
-                control["name"]
+                control["name"],
+                control["description"],
+                control["children"]
             )
 
             if key in seen:
