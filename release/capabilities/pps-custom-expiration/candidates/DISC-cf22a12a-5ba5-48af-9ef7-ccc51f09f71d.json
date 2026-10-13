@@ -1,0 +1,60 @@
+{
+    "name": "pps-custom-expiration",
+    "version": "3.0",
+    "inputs": {
+        "case_number": "string"
+    },
+    "outputs": {
+        "status": "string"
+    },
+    "steps": [
+        {
+            "action": "click",
+            "target": {
+                "role": "link",
+                "name": "Edit"
+            }
+        },
+        {
+            "action": "check",
+            "target": {
+                "role": "checkbox",
+                "name": "Exception Granted"
+            }
+        },
+        {
+            "action": "click",
+            "target": {
+                "role": "button",
+                "name": "Update Notes"
+            }
+        }
+    ],
+    "checkpoint": {
+        "text": "Exception Granted on Case"
+    },
+    "status": "candidate",
+    "generated_from": {
+        "request_id": "DISC-cf22a12a-5ba5-48af-9ef7-ccc51f09f71d",
+        "incident_id": "INC-ac7f49be-9590-46eb-ba05-1ca7e471f6fd"
+    },
+    "analysis": {
+        "failure_type": "UI Drift",
+        "root_cause": "Expected link 'Validate' was not found. A link named 'Edit' is present and appears to replace it.",
+        "artifact_changes": [
+            {
+                "step": "click_edit",
+                "change_type": "locator_update",
+                "current": {
+                    "role": "link",
+                    "name": "Validate"
+                },
+                "proposed": {
+                    "role": "link",
+                    "name": "Edit"
+                },
+                "confidence": "high"
+            }
+        ]
+    }
+}

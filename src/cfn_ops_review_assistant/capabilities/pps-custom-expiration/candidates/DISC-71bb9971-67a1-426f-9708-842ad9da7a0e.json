@@ -1,0 +1,60 @@
+{
+    "name": "pps-custom-expiration",
+    "version": "7.0",
+    "inputs": {
+        "case_number": "string"
+    },
+    "outputs": {
+        "status": "string"
+    },
+    "steps": [
+        {
+            "action": "click",
+            "target": {
+                "role": "link",
+                "name": "Edit"
+            }
+        },
+        {
+            "action": "check",
+            "target": {
+                "role": "checkbox",
+                "name": "Exception Granted"
+            }
+        },
+        {
+            "action": "click",
+            "target": {
+                "role": "button",
+                "name": "Update Case"
+            }
+        }
+    ],
+    "checkpoint": {
+        "text": "Exception Granted on Case"
+    },
+    "status": "candidate",
+    "generated_from": {
+        "request_id": "DISC-71bb9971-67a1-426f-9708-842ad9da7a0e",
+        "incident_id": "INC-eab2a55d-4dd3-48ec-899a-293a1e2b832e"
+    },
+    "analysis": {
+        "failure_type": "locator_update",
+        "root_cause": "Failed to locate 'Validate' link due to changes in UI",
+        "artifact_changes": [
+            {
+                "step": "click, target: {'role': 'link', 'name': 'Validate'}",
+                "change_type": "locator_update",
+                "current": {
+                    "role": "link",
+                    "name": "Validate"
+                },
+                "proposed": {
+                    "role": "link",
+                    "name": "Edit"
+                },
+                "confidence": "medium"
+            }
+        ]
+    }
+}

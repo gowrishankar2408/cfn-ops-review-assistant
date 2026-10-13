@@ -7,15 +7,22 @@ from cfn_ops_review_assistant.services.surface_helper import SurfaceAdapter
 
 
 def review(case_number: str, token: str) -> ReviewResult:
+    current_step = None
     process = CRMService()
     adaptor = SurfaceAdapter()
     try:
-        artifact = (
-                CapabilityRegistry()
-                .load_artifact(
-                "pps-custom-expiration"
+        try:
+            artifact = (
+                    CapabilityRegistry()
+                    .load_artifact(
+                    "pps-custom-expiration"
+                    )
                 )
-            )
+        except Exception as ex:
+            print("Failed to load artifact.")
+            print(type(ex))
+            print(ex)
+            raise
         current_step = "launch_case"
         adaptor.launch_case(
             case_number,

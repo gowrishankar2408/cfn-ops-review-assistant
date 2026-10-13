@@ -1,0 +1,12 @@
+{
+  "incident_id": "INC-c2b2fbcb-464c-4ff1-8dde-d9ce6dcb8dcd",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "'NoneType' object has no attribute 'url'",
+  "timestamp": "2026-10-06T12:25:50.998599",
+  "failed_step": null,
+  "screenshot": null,
+  "visible_controls": null,
+  "capture_url": null
+}

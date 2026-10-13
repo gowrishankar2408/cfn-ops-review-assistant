@@ -1,0 +1,60 @@
+{
+    "name": "pps-custom-expiration",
+    "version": "2.0",
+    "inputs": {
+        "case_number": "string"
+    },
+    "outputs": {
+        "status": "string"
+    },
+    "steps": [
+        {
+            "action": "click",
+            "target": {
+                "role": "link",
+                "name": "Edit"
+            }
+        },
+        {
+            "action": "check",
+            "target": {
+                "role": "checkbox",
+                "name": "Exception Granted"
+            }
+        },
+        {
+            "action": "click",
+            "target": {
+                "role": "button",
+                "name": "Update Case"
+            }
+        }
+    ],
+    "checkpoint": {
+        "text": "Exception Granted on Case"
+    },
+    "status": "candidate",
+    "generated_from": {
+        "request_id": "DISC-f47b7499-1215-4809-b0f2-4adb60a37007",
+        "incident_id": "INC-d0c2578c-25d6-43c6-8267-7af12f09eb41"
+    },
+    "analysis": {
+        "failure_type": "locator_update",
+        "root_cause": "Failed to click on link 'Validate'",
+        "artifact_changes": [
+            {
+                "step": "Failed Step",
+                "change_type": "locator_update",
+                "current": {
+                    "role": "link",
+                    "name": "Validate"
+                },
+                "proposed": {
+                    "role": "link",
+                    "name": "Edit"
+                },
+                "confidence": "medium"
+            }
+        ]
+    }
+}

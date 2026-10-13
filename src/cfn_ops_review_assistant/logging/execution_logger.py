@@ -1,5 +1,6 @@
 from pathlib import Path
 from datetime import datetime
+from cfn_ops_review_assistant.utils.path_utils import get_project_root
 import json
 
 
@@ -9,7 +10,7 @@ class ExecutionLogger:
         self,
         log_record: dict,
     ):
-        project_root = Path(__file__).resolve().parents[3]
+        project_root = get_project_root()
         log_dir = project_root / "logs/executions"
 
         log_dir.mkdir(

@@ -1,6 +1,7 @@
 from datetime import datetime
 import json
 from pathlib import Path
+from cfn_ops_review_assistant.utils.path_utils import get_project_root
 
 class DiscoveryContextBuilder:
 
@@ -51,7 +52,7 @@ class DiscoveryContextBuilder:
             "visible_controls":
                 incident["visible_controls"],
         }
-        project_root = (Path(__file__).resolve().parents[3])
+        project_root = get_project_root()
         context_dir = (
             project_root
             / "logs"

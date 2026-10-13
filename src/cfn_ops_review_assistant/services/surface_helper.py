@@ -1,8 +1,12 @@
 import os
 from pathlib import Path
+from cfn_ops_review_assistant.utils.path_utils import get_project_root
 from playwright.sync_api import sync_playwright
-import dotenv
-dotenv.load_dotenv()
+from dotenv import load_dotenv
+from cfn_ops_review_assistant.utils.path_utils import get_project_root
+from cfn_ops_review_assistant.agent.control_describer import KNOWN_CONTROLS as controls
+load_dotenv(get_project_root() / ".env")
+
 
 class SurfaceAdapter:
 
@@ -20,7 +24,6 @@ class SurfaceAdapter:
         browser_path = os.getenv(
             "PLAYWRIGHT_BROWSER_PATH"
         )
-
         if not browser_path:
             raise RuntimeError(
                 "PLAYWRIGHT_BROWSER_PATH not configured."
@@ -84,7 +87,9 @@ class SurfaceAdapter:
         return locator.is_visible()
 
     def capture_screenshot(self,incident_id: str,) -> str:
-        base_dir = Path(__file__).resolve().parents[3]
+        if not self.page:
+            return None
+        base_dir = get_project_root()
         screenshot_dir = (base_dir/ "logs"/ "incidents"/ "screenshots")
         screenshot_dir.mkdir(
                         parents=True,
@@ -101,10 +106,14 @@ class SurfaceAdapter:
         return str(screenshot_path)
 
     def capture_url(self, incident_id: str,) -> str:
+        if not self.page:
+            return None
         current_url = self.page.url
         return current_url
 
     def capture_page_text(self,incident_id: str,) -> str:
+        if not self.page:
+            return None
         return self.page.locator(
             "body"
         ).inner_text()
@@ -142,6 +151,9 @@ class SurfaceAdapter:
             "reject",
             "reassign",
             "exception",
+            "workflow",
+            "logs",
+            "actions"
         }
 
         def should_include(name: str) -> bool:
@@ -179,12 +191,13 @@ class SurfaceAdapter:
 
                 controls.append({
                     "role": "button",
-                    "name": name
+                    "name": name,
+                    "description": "",
+                    "children": []
                 })
 
             except Exception:
                 pass
-
         # Links
         for el in self.page.get_by_role("link").all():
             try:
@@ -196,12 +209,32 @@ class SurfaceAdapter:
 
                 controls.append({
                     "role": "link",
-                    "name": name
+                    "name": name,
+                    "description": controls.get(name, {}).get("description", ""),
+                    "children": controls.get(name, {}).get("children", [])
                 })
 
             except Exception:
                 pass
+        #anchors
+        for el in self.page.locator("a").all():
+            #print(el.inner_text().strip())
+            try:
 
+                name = el.inner_text().strip()
+
+                if not should_include(name):
+                    continue
+
+                controls.append({
+                    "role": "link",
+                    "name": name,
+                    "description": controls.get(name, {}).get("description", ""),
+                    "children": controls.get(name, {}).get("children", [])
+                })
+
+            except Exception:
+                pass
         # Checkboxes
         for el in self.page.get_by_role("checkbox").all():
             try:
@@ -216,7 +249,9 @@ class SurfaceAdapter:
 
                 controls.append({
                     "role": "checkbox",
-                    "name": name
+                    "name": name,
+                    "description": controls.get(name, {}).get("description", ""),
+                    "children": controls.get(name, {}).get("children", [])
                 })
 
             except Exception:
@@ -231,7 +266,9 @@ class SurfaceAdapter:
 
             key = (
                 control["role"],
-                control["name"]
+                control["name"],
+                control["description"],
+                control["children"]
             )
 
             if key in seen:

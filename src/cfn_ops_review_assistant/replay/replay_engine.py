@@ -19,6 +19,7 @@ class ReplayEngine:
             f"{capability.name} "
             f"v{capability.version}"
         )
+        failed_step = None
         try:
 
             result = capability.execute(

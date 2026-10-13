@@ -1,5 +1,7 @@
 from cfn_ops_review_assistant.llm.discovery_prompts import DISCOVERY_PROMPT
-from cfn_ops_review_assistant.llm.ollama_client import OllamaClient
+#from cfn_ops_review_assistant.llm.ollama_client import OllamaClient
+from cfn_ops_review_assistant.llm.llm_factory import get_provider
+from cfn_ops_review_assistant.utils.path_utils import get_project_root
 from pathlib import Path
 import json
 class DiscoveryAnalyzer:
@@ -23,14 +25,21 @@ class DiscoveryAnalyzer:
             visible_controls=context["visible_controls"]
             
         )
+        '''
         response = (
             OllamaClient()
             .chat(prompt)
             )
+            '''
+        provider = get_provider()
+        response = provider.generate(
+            prompt
+        )
+
         print(f"LLM Response: {response}")
         analysis = json.loads(response)
         print(f"LLM Analysis Result: {analysis}")
-        project_root = (Path(__file__).resolve().parents[3])
+        project_root = get_project_root()
         analysis_dir = (
             project_root
             / "logs"
