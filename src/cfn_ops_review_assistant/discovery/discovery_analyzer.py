@@ -31,7 +31,7 @@ class DiscoveryAnalyzer:
             .chat(prompt)
             )
             '''
-        provider = get_provider()
+        provider = get_provider("pps")
         response = provider.generate(
             prompt
         )

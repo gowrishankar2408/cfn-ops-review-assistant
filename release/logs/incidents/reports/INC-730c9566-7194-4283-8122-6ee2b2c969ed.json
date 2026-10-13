@@ -1,0 +1,12 @@
+{
+  "incident_id": "INC-730c9566-7194-4283-8122-6ee2b2c969ed",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": ": Target page, context or browser has been closed",
+  "timestamp": "2026-10-12T14:26:47.094484",
+  "failed_step": null,
+  "screenshot": null,
+  "visible_controls": null,
+  "capture_url": null
+}

@@ -1,0 +1,1 @@
+{"failure_type": "locator_update", "root_cause": "Failed to locate 'Validate' link due to changes in UI", "artifact_changes": [{"step": "click, target: {'role': 'link', 'name': 'Validate'}", "change_type": "locator_update", "current": {"role": "link", "name": "Validate"}, "proposed": {"role": "link", "name": "Edit"}, "confidence": "medium"}]}

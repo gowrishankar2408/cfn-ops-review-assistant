@@ -115,8 +115,8 @@ Responsibilities:
 # Technology Stack
 -	Python
 -	Playwright
--	Ollama
--	Llama 3.1
+-	Copilot Studio
+-	GPT-5 Chat
 -	REST APIs
 -	Pydantic
 -	JSON Capability Artifacts

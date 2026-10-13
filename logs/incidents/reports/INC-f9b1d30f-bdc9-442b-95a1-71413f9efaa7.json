@@ -1,0 +1,27 @@
+{
+  "incident_id": "INC-f9b1d30f-bdc9-442b-95a1-71413f9efaa7",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Update Notes\")\n",
+  "timestamp": "2026-10-06T14:42:20.969302",
+  "failed_step": {
+    "action": "click",
+    "target": {
+      "role": "button",
+      "name": "Update Notes"
+    }
+  },
+  "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png",
+  "visible_controls": [
+    {
+      "role": "button",
+      "name": "Update Case"
+    },
+    {
+      "role": "button",
+      "name": "Cancel"
+    }
+  ],
+  "capture_url": "https://home.commonwealth.com/Applications/BOS/support/cases/edit/24910726"
+}

@@ -2423,13 +2423,13 @@
   ('playwright',
    'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\playwright\\__init__.py',
    'PYMODULE'),
-  ('_py_abc',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\_py_abc.py',
-   'PYMODULE'),
   ('stringprep',
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\stringprep.py',
+   'PYMODULE'),
+  ('_py_abc',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\_py_abc.py',
    'PYMODULE'),
   ('tracemalloc',
    'C:\\Program '
@@ -2472,11 +2472,14 @@
   ('cfn_ops_review_assistant.discovery.discovery_analyzer',
    'C:\\Automations\\aws\\cfn-ops-review-assistant\\src\\cfn_ops_review_assistant\\discovery\\discovery_analyzer.py',
    'PYMODULE'),
-  ('cfn_ops_review_assistant.llm.ollama_client',
-   'C:\\Automations\\aws\\cfn-ops-review-assistant\\src\\cfn_ops_review_assistant\\llm\\ollama_client.py',
+  ('cfn_ops_review_assistant.llm.llm_factory',
+   'C:\\Automations\\aws\\cfn-ops-review-assistant\\src\\cfn_ops_review_assistant\\llm\\llm_factory.py',
    'PYMODULE'),
   ('cfn_ops_review_assistant.llm',
    'C:\\Automations\\aws\\cfn-ops-review-assistant\\src\\cfn_ops_review_assistant\\llm\\__init__.py',
+   'PYMODULE'),
+  ('cfn_ops_review_assistant.llm.copilot_provider',
+   'C:\\Automations\\aws\\cfn-ops-review-assistant\\src\\cfn_ops_review_assistant\\llm\\copilot_provider.py',
    'PYMODULE'),
   ('requests',
    'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\requests\\__init__.py',
@@ -2671,6 +2674,9 @@
   ('certifi.core',
    'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\certifi\\core.py',
    'PYMODULE'),
+  ('cfn_ops_review_assistant.llm.provider',
+   'C:\\Automations\\aws\\cfn-ops-review-assistant\\src\\cfn_ops_review_assistant\\llm\\provider.py',
+   'PYMODULE'),
   ('urllib3',
    'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\urllib3\\__init__.py',
    'PYMODULE'),
@@ -2688,6 +2694,12 @@
    'PYMODULE'),
   ('urllib3.contrib.emscripten.fetch',
    'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\urllib3\\contrib\\emscripten\\fetch.py',
+   'PYMODULE'),
+  ('cfn_ops_review_assistant.llm.ollama_provider',
+   'C:\\Automations\\aws\\cfn-ops-review-assistant\\src\\cfn_ops_review_assistant\\llm\\ollama_provider.py',
+   'PYMODULE'),
+  ('cfn_ops_review_assistant.llm.ollama_client',
+   'C:\\Automations\\aws\\cfn-ops-review-assistant\\src\\cfn_ops_review_assistant\\llm\\ollama_client.py',
    'PYMODULE'),
   ('cfn_ops_review_assistant.llm.discovery_prompts',
    'C:\\Automations\\aws\\cfn-ops-review-assistant\\src\\cfn_ops_review_assistant\\llm\\discovery_prompts.py',
@@ -2707,6 +2719,10 @@
   ('cfn_ops_review_assistant.services.surface_helper',
    'C:\\Automations\\aws\\cfn-ops-review-assistant\\src\\cfn_ops_review_assistant\\services\\surface_helper.py',
    'PYMODULE'),
+  ('cfn_ops_review_assistant.agent.control_describer',
+   'C:\\Automations\\aws\\cfn-ops-review-assistant\\src\\cfn_ops_review_assistant\\agent\\control_describer.py',
+   'PYMODULE'),
+  ('cfn_ops_review_assistant.agent', '-', 'PYMODULE'),
   ('cfn_ops_review_assistant.models.models',
    'C:\\Automations\\aws\\cfn-ops-review-assistant\\src\\cfn_ops_review_assistant\\models\\models.py',
    'PYMODULE'),
@@ -5367,37 +5383,117 @@
    'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\setuptools\\_vendor\\jaraco\\text\\Lorem '
    'ipsum.txt',
    'DATA'),
-  ('certifi\\cacert.pem',
-   'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\certifi\\cacert.pem',
-   'DATA'),
   ('certifi\\py.typed',
    'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\certifi\\py.typed',
    'DATA'),
-  ('pydantic-2.13.5.dist-info\\RECORD',
-   'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\pydantic-2.13.5.dist-info\\RECORD',
-   'DATA'),
-  ('pydantic-2.13.5.dist-info\\INSTALLER',
-   'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\pydantic-2.13.5.dist-info\\INSTALLER',
-   'DATA'),
-  ('pydantic-2.13.5.dist-info\\METADATA',
-   'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\pydantic-2.13.5.dist-info\\METADATA',
+  ('certifi\\cacert.pem',
+   'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\certifi\\cacert.pem',
    'DATA'),
   ('pydantic-2.13.5.dist-info\\WHEEL',
    'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\pydantic-2.13.5.dist-info\\WHEEL',
    'DATA'),
+  ('pydantic-2.13.5.dist-info\\INSTALLER',
+   'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\pydantic-2.13.5.dist-info\\INSTALLER',
+   'DATA'),
   ('pydantic-2.13.5.dist-info\\licenses\\LICENSE',
    'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\pydantic-2.13.5.dist-info\\licenses\\LICENSE',
+   'DATA'),
+  ('pydantic-2.13.5.dist-info\\METADATA',
+   'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\pydantic-2.13.5.dist-info\\METADATA',
+   'DATA'),
+  ('pydantic-2.13.5.dist-info\\RECORD',
+   'C:\\Automations\\aws\\cfn-ops-review-assistant\\.venv\\Lib\\site-packages\\pydantic-2.13.5.dist-info\\RECORD',
    'DATA'),
   ('base_library.zip',
    'C:\\Automations\\aws\\cfn-ops-review-assistant\\build\\cfn-ops-review-assistant\\base_library.zip',
    'DATA')],
- [('codecs',
+ [('stat',
    'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\codecs.py',
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\stat.py',
    'PYMODULE'),
-  ('abc',
+  ('operator',
    'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\abc.py',
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\operator.py',
+   'PYMODULE'),
+  ('types',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\types.py',
+   'PYMODULE'),
+  ('os',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\os.py',
+   'PYMODULE'),
+  ('io',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\io.py',
+   'PYMODULE'),
+  ('linecache',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\linecache.py',
+   'PYMODULE'),
+  ('weakref',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\weakref.py',
+   'PYMODULE'),
+  ('_weakrefset',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\_weakrefset.py',
+   'PYMODULE'),
+  ('enum',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\enum.py',
+   'PYMODULE'),
+  ('genericpath',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\genericpath.py',
+   'PYMODULE'),
+  ('ntpath',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\ntpath.py',
+   'PYMODULE'),
+  ('sre_constants',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\sre_constants.py',
+   'PYMODULE'),
+  ('traceback',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\traceback.py',
+   'PYMODULE'),
+  ('sre_parse',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\sre_parse.py',
+   'PYMODULE'),
+  ('sre_compile',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\sre_compile.py',
+   'PYMODULE'),
+  ('collections',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\collections\\__init__.py',
+   'PYMODULE'),
+  ('re._parser',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\re\\_parser.py',
+   'PYMODULE'),
+  ('re._constants',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\re\\_constants.py',
+   'PYMODULE'),
+  ('re._compiler',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\re\\_compiler.py',
+   'PYMODULE'),
+  ('re._casefix',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\re\\_casefix.py',
+   'PYMODULE'),
+  ('re',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\re\\__init__.py',
+   'PYMODULE'),
+  ('_collections_abc',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\_collections_abc.py',
    'PYMODULE'),
   ('encodings.zlib_codec',
    'C:\\Program '
@@ -5887,123 +5983,43 @@
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\encodings\\__init__.py',
    'PYMODULE'),
-  ('enum',
+  ('functools',
    'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\enum.py',
-   'PYMODULE'),
-  ('posixpath',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\posixpath.py',
-   'PYMODULE'),
-  ('os',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\os.py',
-   'PYMODULE'),
-  ('types',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\types.py',
-   'PYMODULE'),
-  ('stat',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\stat.py',
-   'PYMODULE'),
-  ('linecache',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\linecache.py',
-   'PYMODULE'),
-  ('collections',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\collections\\__init__.py',
-   'PYMODULE'),
-  ('warnings',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\warnings.py',
-   'PYMODULE'),
-  ('sre_parse',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\sre_parse.py',
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\functools.py',
    'PYMODULE'),
   ('copyreg',
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\copyreg.py',
    'PYMODULE'),
-  ('operator',
+  ('posixpath',
    'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\operator.py',
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\posixpath.py',
    'PYMODULE'),
-  ('weakref',
+  ('codecs',
    'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\weakref.py',
-   'PYMODULE'),
-  ('keyword',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\keyword.py',
-   'PYMODULE'),
-  ('_weakrefset',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\_weakrefset.py',
-   'PYMODULE'),
-  ('re._parser',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\re\\_parser.py',
-   'PYMODULE'),
-  ('re._constants',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\re\\_constants.py',
-   'PYMODULE'),
-  ('re._compiler',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\re\\_compiler.py',
-   'PYMODULE'),
-  ('re._casefix',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\re\\_casefix.py',
-   'PYMODULE'),
-  ('re',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\re\\__init__.py',
-   'PYMODULE'),
-  ('locale',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\locale.py',
-   'PYMODULE'),
-  ('sre_constants',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\sre_constants.py',
-   'PYMODULE'),
-  ('_collections_abc',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\_collections_abc.py',
-   'PYMODULE'),
-  ('heapq',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\heapq.py',
-   'PYMODULE'),
-  ('genericpath',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\genericpath.py',
-   'PYMODULE'),
-  ('sre_compile',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\sre_compile.py',
-   'PYMODULE'),
-  ('functools',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\functools.py',
-   'PYMODULE'),
-  ('traceback',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\traceback.py',
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\codecs.py',
    'PYMODULE'),
   ('reprlib',
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\reprlib.py',
    'PYMODULE'),
-  ('ntpath',
+  ('keyword',
    'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\ntpath.py',
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\keyword.py',
    'PYMODULE'),
-  ('io',
+  ('heapq',
    'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\io.py',
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\heapq.py',
+   'PYMODULE'),
+  ('abc',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\abc.py',
+   'PYMODULE'),
+  ('locale',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\locale.py',
+   'PYMODULE'),
+  ('warnings',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\warnings.py',
    'PYMODULE')])

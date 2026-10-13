@@ -30,3 +30,6 @@ Thumbs.db
 incidents/screenshots/*
 incidents/reports/*
 incidents/logs/*
+
+*.jsonl
+*.exe

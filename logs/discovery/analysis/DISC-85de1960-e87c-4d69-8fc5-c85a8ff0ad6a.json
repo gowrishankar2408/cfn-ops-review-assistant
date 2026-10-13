@@ -1,0 +1,19 @@
+{
+    "failure_type": "locator_update",
+    "root_cause": "replacement found",
+    "artifact_changes": [
+        {
+            "step": "Failed Step",
+            "change_type": "locator_update",
+            "current": {
+                "role": "button",
+                "name": "Update Notes"
+            },
+            "proposed": {
+                "role": "button",
+                "name": "Update Case"
+            },
+            "confidence": "high"
+        }
+    ]
+}

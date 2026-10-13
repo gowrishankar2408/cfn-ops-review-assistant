@@ -193,7 +193,7 @@ def main(
             )
         )
         print(status_code)
-        if status_code == 200:
+        if status_code == 204:
             print("\nCase closed successfully.")
         else:
             print("\nFailed to close the case.")

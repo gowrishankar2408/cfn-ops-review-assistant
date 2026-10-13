@@ -1,0 +1,60 @@
+{
+    "name": "pps-custom-expiration",
+    "version": "8.0",
+    "inputs": {
+        "case_number": "string"
+    },
+    "outputs": {
+        "status": "string"
+    },
+    "steps": [
+        {
+            "action": "click",
+            "target": {
+                "role": "link",
+                "name": "My ACAT Auto Close Cases"
+            }
+        },
+        {
+            "action": "check",
+            "target": {
+                "role": "checkbox",
+                "name": "Exception Granted"
+            }
+        },
+        {
+            "action": "click",
+            "target": {
+                "role": "button",
+                "name": "Update Case"
+            }
+        }
+    ],
+    "checkpoint": {
+        "text": "Exception Granted on Case"
+    },
+    "status": "candidate",
+    "generated_from": {
+        "request_id": "DISC-44e2cc49-9f57-4ef3-ada1-54de0c8ff024",
+        "incident_id": "INC-2c76f144-6957-433c-a917-39fbbacc2072"
+    },
+    "analysis": {
+        "failure_type": "locator_update",
+        "root_cause": "click, target, role link, name Validate",
+        "artifact_changes": [
+            {
+                "step": "click, target, role link, name Validate",
+                "change_type": "locator_update",
+                "current": {
+                    "role": "link",
+                    "name": "Validate"
+                },
+                "proposed": {
+                    "role": "link",
+                    "name": "My ACAT Auto Close Cases"
+                },
+                "confidence": "medium"
+            }
+        ]
+    }
+}

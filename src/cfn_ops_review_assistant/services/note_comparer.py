@@ -1,6 +1,7 @@
 import json
 from urllib import response
 
+from cfn_ops_review_assistant.llm.llm_factory import get_provider
 from cfn_ops_review_assistant.llm.ollama_client import OllamaClient
 from cfn_ops_review_assistant.llm.prompts import (
     COMPARISON_PROMPT_TEMPLATE,
@@ -17,9 +18,14 @@ class NoteComparer:
             left_clean=original_note,
             right_clean=edited_note,
         )
-
+        '''
         response = OllamaClient().chat(
             prompt=prompt
+        )
+        '''
+        provider = get_provider("psr")
+        response = provider.generate(
+            prompt
         )
         response = response.strip()
         if not response:

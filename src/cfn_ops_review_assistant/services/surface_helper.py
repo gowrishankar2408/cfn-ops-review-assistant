@@ -4,7 +4,7 @@ from cfn_ops_review_assistant.utils.path_utils import get_project_root
 from playwright.sync_api import sync_playwright
 from dotenv import load_dotenv
 from cfn_ops_review_assistant.utils.path_utils import get_project_root
-from cfn_ops_review_assistant.agent.control_describer import KNOWN_CONTROLS as controls
+from cfn_ops_review_assistant.agent.control_describer import KNOWN_CONTROLS as kcontrols
 load_dotenv(get_project_root() / ".env")
 
 
@@ -136,6 +136,7 @@ class SurfaceAdapter:
             "You",
             "0",
             "testDocument.txt",
+            "Close Cases"
         }
 
         action_keywords = {
@@ -170,6 +171,12 @@ class SurfaceAdapter:
                 return False
 
             if name.startswith("http"):
+                return False
+
+            if "cases" in name.lower():
+                return False
+
+            if name.startswith("*"):
                 return False
 
             if any(
@@ -210,8 +217,8 @@ class SurfaceAdapter:
                 controls.append({
                     "role": "link",
                     "name": name,
-                    "description": controls.get(name, {}).get("description", ""),
-                    "children": controls.get(name, {}).get("children", [])
+                    "description": kcontrols.get(name, {}).get("description", ""),
+                    "children": kcontrols.get(name, {}).get("children", ""),
                 })
 
             except Exception:
@@ -229,8 +236,8 @@ class SurfaceAdapter:
                 controls.append({
                     "role": "link",
                     "name": name,
-                    "description": controls.get(name, {}).get("description", ""),
-                    "children": controls.get(name, {}).get("children", [])
+                    "description": kcontrols.get(name, {}).get("description", ""),
+                    "children": kcontrols.get(name, {}).get("children", [])
                 })
 
             except Exception:
@@ -250,8 +257,8 @@ class SurfaceAdapter:
                 controls.append({
                     "role": "checkbox",
                     "name": name,
-                    "description": controls.get(name, {}).get("description", ""),
-                    "children": controls.get(name, {}).get("children", [])
+                    "description": kcontrols.get(name, {}).get("description", ""),
+                    "children": kcontrols.get(name, {}).get("children", [])
                 })
 
             except Exception:
@@ -268,7 +275,7 @@ class SurfaceAdapter:
                 control["role"],
                 control["name"],
                 control["description"],
-                control["children"]
+                tuple(control["children"])
             )
 
             if key in seen:

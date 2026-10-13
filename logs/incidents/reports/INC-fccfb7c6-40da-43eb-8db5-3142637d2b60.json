@@ -1,0 +1,12 @@
+{
+  "incident_id": "INC-fccfb7c6-40da-43eb-8db5-3142637d2b60",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "unhashable type: 'list'",
+  "timestamp": "2026-10-12T11:08:27.353232",
+  "failed_step": null,
+  "screenshot": null,
+  "visible_controls": null,
+  "capture_url": null
+}

@@ -1,0 +1,1 @@
+{"failure_type": "ui_drift", "root_cause": "Validate was replaced by Edit.", "artifact_changes": [{"step": "failed_step", "change_type": "locator_update", "current": {"role": "link", "name": "Validate"}, "proposed": {"role": "link", "name": "Edit"}, "confidence": "high"}]}
