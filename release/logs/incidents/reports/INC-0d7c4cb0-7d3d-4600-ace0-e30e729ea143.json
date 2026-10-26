@@ -1,0 +1,12 @@
+{
+  "incident_id": "INC-0d7c4cb0-7d3d-4600-ace0-e30e729ea143",
+  "capability": "psr-review",
+  "version": "1.0",
+  "case_number": "31997269",
+  "error": "Unable to find ORIGINAL SUBMIT DATE and EDIT SUBMIT DATE notes.",
+  "timestamp": "2026-10-26T12:43:21.722275",
+  "failed_step": null,
+  "screenshot": null,
+  "visible_controls": null,
+  "capture_url": null
+}

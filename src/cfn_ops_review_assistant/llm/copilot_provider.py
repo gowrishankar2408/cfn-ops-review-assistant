@@ -53,7 +53,7 @@ class CopilotProvider(
             verify=False
         )
 
-        time.sleep(5)
+        time.sleep(15)
 
         activities = requests.get(
             os.getenv("copilot_url") + f"/{conversation_id}/activities",
