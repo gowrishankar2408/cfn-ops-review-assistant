@@ -74,7 +74,7 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def show_menu() -> tuple[str, str]:
+def show_menu() -> tuple[str, str] | None:
 
     print("\n")
     print("=" * 50)
@@ -85,6 +85,7 @@ def show_menu() -> tuple[str, str]:
 
     print("1. PSR Review")
     print("2. PPS Custom Expiration Review")
+    print("3. Exit")
 
     selection = input(
         "\nSelect Review: "
@@ -95,9 +96,10 @@ def show_menu() -> tuple[str, str]:
         "2": "pps-custom-expiration",
     }
 
-    review_type = review_mapping.get(
-        selection
-    )
+    if selection == "3":
+        return None
+
+    review_type = review_mapping.get(selection)
 
     if not review_type:
         raise ValueError(
@@ -111,36 +113,7 @@ def show_menu() -> tuple[str, str]:
     return review_type, case_number
 
 
-def main(
-    argv: Sequence[str] | None = None,
-) -> int:
-
-    parser = build_parser()
-
-    args = parser.parse_args(argv)
-    if args.command == "setup": 
-        SetupService().run()
-        return 0
-
-    if args.command == "discover":
-        DiscoveryEngine().discover(args.request_id)
-        return 0
-    
-    if args.command == "publish":
-        PublishManager().publish(args.request_id, args.capability_name)
-        return 0
-
-    if args.command == "review":
-
-        review_type = args.review_type
-        case_number = args.case_number
-
-    else:
-
-        review_type, case_number = show_menu()
-
-    #if not args.command:
-    #review_type, case_number = show_menu()
+def _run_review(review_type: str, case_number: str) -> int:
 
     print("\nGenerating CFN Session...")
 
@@ -193,7 +166,7 @@ def main(
             )
         )
         print(status_code)
-        if status_code == 200:
+        if status_code == 204:
             print("\nCase closed successfully.")
         else:
             print("\nFailed to close the case.")
@@ -207,8 +180,35 @@ def main(
     return 0
 
 
+def main(
+    argv: Sequence[str] | None = None,
+) -> int:
+
+    parser = build_parser()
+
+    args = parser.parse_args(argv)
+    if args.command == "setup": 
+        SetupService().run()
+        return 0
+
+    if args.command == "discover":
+        DiscoveryEngine().discover(args.request_id)
+        return 0
+    
+    if args.command == "publish":
+        PublishManager().publish(args.request_id, args.capability_name)
+        return 0
+
+    if args.command == "review":
+        return _run_review(args.review_type, args.case_number)
+
+    while True:
+        selection = show_menu()
+        if selection is None:
+            return 0
+
+        _run_review(*selection)
+
+
 if __name__ == "__main__":
-    try:
-        raise SystemExit(main())
-    finally:
-        input("\nPress Enter to exit...")
+    raise SystemExit(main())

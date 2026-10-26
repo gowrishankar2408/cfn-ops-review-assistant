@@ -1,0 +1,79 @@
+{
+  "incident_id": "INC-870af323-ce17-448d-8d56-68d9f9436a02",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "case_number": "24910726",
+  "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"link\", name=\"Validate\")\n",
+  "timestamp": "2026-10-12T12:26:45.230288",
+  "failed_step": {
+    "action": "click",
+    "target": {
+      "role": "link",
+      "name": "Validate"
+    }
+  },
+  "screenshot": "C:\\Automations\\aws\\cfn-ops-review-assistant\\logs\\incidents\\screenshots\\24910726.png",
+  "visible_controls": [
+    {
+      "role": "button",
+      "name": "Open",
+      "description": "",
+      "children": []
+    },
+    {
+      "role": "link",
+      "name": "Edit",
+      "description": "Open case in edit mode to modify values",
+      "children": []
+    },
+    {
+      "role": "link",
+      "name": "Workflow",
+      "description": "Case workflow operations such as Accept, Assign, Change Status, Close, Dispatch and Run Task Set",
+      "children": [
+        "Accept",
+        "Assign",
+        "Change Status",
+        "Close",
+        "Dispatch",
+        "Run Task Set"
+      ]
+    },
+    {
+      "role": "link",
+      "name": "Close",
+      "description": "Close the current case",
+      "children": []
+    },
+    {
+      "role": "link",
+      "name": "Reject from Queue",
+      "description": "",
+      "children": []
+    },
+    {
+      "role": "link",
+      "name": "Reopen",
+      "description": "",
+      "children": []
+    },
+    {
+      "role": "link",
+      "name": "Logs",
+      "description": "View case history and activity logs",
+      "children": [
+        "Commitment",
+        "Email",
+        "Notes",
+        "Research"
+      ]
+    },
+    {
+      "role": "link",
+      "name": "Actions",
+      "description": "Additional case actions and utilities",
+      "children": []
+    }
+  ],
+  "capture_url": "https://home.commonwealth.com/Applications/BOS/support/cases/24910726"
+}

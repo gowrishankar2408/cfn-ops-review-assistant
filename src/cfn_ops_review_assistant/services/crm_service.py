@@ -28,4 +28,4 @@ class CRMService:
                     "status": "Pass"
                     }
         response = requests.post(closeURL, headers={"Content-Type":"application/json","client_id": self.clientID, "client_secret": self.clientSecret }, json=payload)
-        return response.content
+        return response.status_code

@@ -1,0 +1,49 @@
+{
+  "request_id": "DISC-fe41af8e-f946-4b09-87ab-53a5f07eee2a",
+  "capability": "pps-custom-expiration",
+  "version": "1.0",
+  "incident_id": "INC-fccfb7c6-40da-43eb-8db5-3142637d2b60",
+  "case_number": "24910726",
+  "error": "unhashable type: 'list'",
+  "screenshot": null,
+  "failed_step": null,
+  "capture_url": null,
+  "generated_at": "2026-10-12T11:14:36.023390",
+  "artifact": {
+    "name": "pps-custom-expiration",
+    "version": "7.0",
+    "inputs": {
+      "case_number": "string"
+    },
+    "outputs": {
+      "status": "string"
+    },
+    "steps": [
+      {
+        "action": "click",
+        "target": {
+          "role": "link",
+          "name": "Validate"
+        }
+      },
+      {
+        "action": "check",
+        "target": {
+          "role": "checkbox",
+          "name": "Exception Granted"
+        }
+      },
+      {
+        "action": "click",
+        "target": {
+          "role": "button",
+          "name": "Update Case"
+        }
+      }
+    ],
+    "checkpoint": {
+      "text": "Exception Granted on Case"
+    }
+  },
+  "visible_controls": null
+}

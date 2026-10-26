@@ -1,0 +1,9 @@
+{
+  "request_id": "DISC-c42d602b-a1a4-4f0d-804f-cd41fe262aab",
+  "capability": "psr-review",
+  "version": "1.0",
+  "incident_id": "INC-2f21e25c-ab04-457d-a162-0ac95e3fc522",
+  "case_number": "24910726",
+  "status": "pending",
+  "created_at": "2026-10-07T12:37:05.790702"
+}

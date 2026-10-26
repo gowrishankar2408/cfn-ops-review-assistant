@@ -1,0 +1,12 @@
+{
+  "incident_id": "INC-aecc198c-8191-47ff-b3ae-f73bc4994910",
+  "capability": "psr-review",
+  "version": "1.0",
+  "case_number": "31567766",
+  "error": "list index out of range",
+  "timestamp": "2026-10-12T16:09:32.041379",
+  "failed_step": null,
+  "screenshot": null,
+  "visible_controls": null,
+  "capture_url": null
+}
